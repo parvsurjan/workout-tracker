@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Workout Tracker",
+    "slug": "workout-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "workouttracker",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#0d0d0d",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.parvsurjan.workouttracker",
+      "buildNumber": "1"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
