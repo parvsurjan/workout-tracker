@@ -6,14 +6,16 @@
     "orientation": "portrait",
     "scheme": "workouttracker",
     "userInterfaceStyle": "dark",
+    "icon": "./assets/icon.png",
     "splash": {
+      "image": "./assets/splash.png",
       "backgroundColor": "#0d0d0d",
       "resizeMode": "contain"
     },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.parvsurjan.workouttracker",
-      "buildNumber": "1"
+      "buildNumber": "2"
     },
     "plugins": [
       "expo-router",
