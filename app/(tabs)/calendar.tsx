@@ -16,7 +16,7 @@ import { WORKOUT_PLAN, PHASE_FOR_WEEK, TOTAL_DAYS, DAYS_PER_WEEK } from '../../d
 import { DayDetail } from '../../components/DayDetail';
 import { theme } from '../../theme';
 
-const STORAGE_KEY = 'currentDayIndex';
+const STORAGE_KEY = 'currentDayIndex_v2';
 
 export default function CalendarScreen() {
   const navigation = useNavigation<BottomTabNavigationProp<Record<string, undefined>>>();

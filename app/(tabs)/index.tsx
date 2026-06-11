@@ -14,7 +14,7 @@ import { WORKOUT_PLAN, TOTAL_DAYS, DAYS_PER_WEEK } from '../../data/workoutPlan'
 import { DayDetail } from '../../components/DayDetail';
 import { theme } from '../../theme';
 
-const STORAGE_KEY = 'currentDayIndex';
+const STORAGE_KEY = 'currentDayIndex_v2';
 
 export default function WorkoutScreen() {
   const [currentDayIndex, setCurrentDayIndex] = useState<number>(0);
