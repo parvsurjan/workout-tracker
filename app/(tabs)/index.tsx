@@ -10,12 +10,11 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
-import { WORKOUT_PLAN } from '../../data/workoutPlan';
+import { WORKOUT_PLAN, TOTAL_DAYS, DAYS_PER_WEEK } from '../../data/workoutPlan';
 import { DayDetail } from '../../components/DayDetail';
 import { theme } from '../../theme';
 
 const STORAGE_KEY = 'currentDayIndex';
-const TOTAL_DAYS = 42;
 
 export default function WorkoutScreen() {
   const [currentDayIndex, setCurrentDayIndex] = useState<number>(0);
@@ -66,8 +65,8 @@ export default function WorkoutScreen() {
     return <Congrats onReset={resetProgram} />;
   }
 
-  const weekIdx = Math.floor(viewIndex / 7);
-  const dayInWeek = viewIndex % 7;
+  const weekIdx = Math.floor(viewIndex / DAYS_PER_WEEK);
+  const dayInWeek = viewIndex % DAYS_PER_WEEK;
   const day = WORKOUT_PLAN[weekIdx][dayInWeek];
   const isReviewing = viewIndex < currentDayIndex;
   const canGoBack = viewIndex > 0;
@@ -136,8 +135,8 @@ function Congrats({ onReset }: { onReset: () => void }) {
         <Text style={styles.congratsEmoji}>🏆</Text>
         <Text style={styles.congratsTitle}>6 weeks complete</Text>
         <Text style={styles.congratsBody}>
-          You finished all 42 days. Stronger, leaner, more defined. Set your next goal and keep
-          going.
+          You finished all {TOTAL_DAYS} days. Stronger, leaner, more defined. Set your next goal and
+          keep going.
         </Text>
         <Pressable onPress={onReset} style={styles.resetButton}>
           <Text style={styles.completeButtonText}>Restart program</Text>

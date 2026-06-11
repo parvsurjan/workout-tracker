@@ -10,17 +10,27 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
-import { WORKOUT_PLAN, PHASE_FOR_WEEK } from '../../data/workoutPlan';
+import { useNavigation } from 'expo-router';
+import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { WORKOUT_PLAN, PHASE_FOR_WEEK, TOTAL_DAYS, DAYS_PER_WEEK } from '../../data/workoutPlan';
 import { DayDetail } from '../../components/DayDetail';
 import { theme } from '../../theme';
 
 const STORAGE_KEY = 'currentDayIndex';
-const TOTAL_DAYS = 42;
 
 export default function CalendarScreen() {
+  const navigation = useNavigation<BottomTabNavigationProp<Record<string, undefined>>>();
   const [currentDayIndex, setCurrentDayIndex] = useState<number>(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Tapping the Calendar tab while a day is open returns to the calendar grid.
+  useEffect(() => {
+    const unsub = navigation.addListener('tabPress', () => {
+      setSelected(null);
+    });
+    return unsub;
+  }, [navigation]);
 
   const load = useCallback(async () => {
     try {
@@ -49,8 +59,8 @@ export default function CalendarScreen() {
   }
 
   if (selected !== null) {
-    const weekIdx = Math.floor(selected / 7);
-    const dayInWeek = selected % 7;
+    const weekIdx = Math.floor(selected / DAYS_PER_WEEK);
+    const dayInWeek = selected % DAYS_PER_WEEK;
     const day = WORKOUT_PLAN[weekIdx][dayInWeek];
     const status =
       selected < currentDayIndex
@@ -106,7 +116,7 @@ export default function CalendarScreen() {
                 </View>
               </View>
               {week.map((day, dIdx) => {
-                const globalIdx = wIdx * 7 + dIdx;
+                const globalIdx = wIdx * DAYS_PER_WEEK + dIdx;
                 const isCompleted = globalIdx < currentDayIndex;
                 const isCurrent = globalIdx === currentDayIndex;
                 return (

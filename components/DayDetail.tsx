@@ -78,6 +78,14 @@ export function DayDetail({ day, weekIdx, dayInWeek }: { day: DayPlan; weekIdx: 
         </Section>
       )}
 
+      {day.coreFinisher.length > 0 && (
+        <Section title="Core finisher — 10–12 min" tint={theme.coreBg} accent={theme.coreAccent}>
+          {day.coreFinisher.map((ex, i) => (
+            <ExerciseRow key={i} ex={ex} accent={theme.coreAccent} />
+          ))}
+        </Section>
+      )}
+
       <View style={styles.noteCard}>
         <Ionicons name="bulb-outline" size={16} color={theme.textMuted} />
         <Text style={styles.noteText}>{day.note}</Text>

@@ -16,6 +16,9 @@ export const theme = {
   pronationBg: 'rgba(139, 92, 246, 0.12)',
   pronationAccent: '#8b5cf6',
 
+  coreBg: 'rgba(20, 184, 166, 0.12)',
+  coreAccent: '#14b8a6',
+
   typeColors: {
     strength: '#3a9ee8',
     hiit: '#f59e0b',
