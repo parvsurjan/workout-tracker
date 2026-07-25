@@ -10,25 +10,40 @@ export const theme = {
   weightPillBg: 'rgba(34, 197, 94, 0.15)',
   weightPillText: '#22c55e',
 
+  // Muted pill for bodyweight / unlogged lifts (loadLbs === null).
+  bodyweightPillBg: 'rgba(148, 163, 184, 0.14)',
+  bodyweightPillText: '#94a3b8',
+
   forearmBg: 'rgba(245, 158, 11, 0.12)',
   forearmAccent: '#f59e0b',
-
-  pronationBg: 'rgba(139, 92, 246, 0.12)',
-  pronationAccent: '#8b5cf6',
 
   coreBg: 'rgba(20, 184, 166, 0.12)',
   coreAccent: '#14b8a6',
 
-  typeColors: {
-    strength: '#3a9ee8',
-    hiit: '#f59e0b',
-    circuit: '#22c55e',
-    rest: '#6b7280',
-  },
+  cardioBg: 'rgba(56, 189, 248, 0.12)',
+  cardioAccent: '#38bdf8',
 
-  phaseColors: {
-    Foundation: '#3a9ee8',
-    Build: '#f59e0b',
-    Peak: '#ef4444',
-  },
+  checkinBg: 'rgba(168, 85, 247, 0.12)',
+  checkinAccent: '#a855f7',
+
+  // Deload weeks read desaturated/muted at a glance.
+  deloadBg: 'rgba(107, 114, 128, 0.14)',
+  deloadAccent: '#94a3b8',
+
+  // Day kinds (rest is dropped from the program but kept for safety).
+  kindColors: {
+    training: '#3a9ee8',
+    cardio: '#38bdf8',
+    checkin: '#a855f7',
+    rest: '#6b7280',
+  } as Record<string, string>,
+
+  // Five training blocks across the 34-week program.
+  blockColors: {
+    block_1: '#3a9ee8', // Foundation & Calibration — blue
+    block_2: '#22c55e', // Hypertrophy Accumulation — green
+    block_3: '#f59e0b', // Intensification — amber
+    block_4: '#ef4444', // Volume Peak & Definition — red
+    block_5: '#a855f7', // Consolidation & Best-Of — purple
+  } as Record<string, string>,
 };

@@ -27,11 +27,11 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="calisthenics"
+        name="library"
         options={{
-          title: 'Calisthenics',
+          title: 'Library',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="body" size={size} color={color} />
+            <Ionicons name="book" size={size} color={color} />
           ),
         }}
       />

@@ -10,11 +10,12 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
-import { WORKOUT_PLAN, TOTAL_DAYS, DAYS_PER_WEEK } from '../../data/workoutPlan';
+import { resolvedDays, TOTAL_DAYS, TOTAL_WEEKS } from '../../data/workoutPlan';
 import { DayDetail } from '../../components/DayDetail';
+import { CheckinCard } from '../../components/CheckinCard';
 import { theme } from '../../theme';
 
-const STORAGE_KEY = 'currentDayIndex_v2';
+const STORAGE_KEY = 'currentDayIndex_v3';
 
 export default function WorkoutScreen() {
   const [currentDayIndex, setCurrentDayIndex] = useState<number>(0);
@@ -65,15 +66,14 @@ export default function WorkoutScreen() {
     return <Congrats onReset={resetProgram} />;
   }
 
-  const weekIdx = Math.floor(viewIndex / DAYS_PER_WEEK);
-  const dayInWeek = viewIndex % DAYS_PER_WEEK;
-  const day = WORKOUT_PLAN[weekIdx][dayInWeek];
+  const day = resolvedDays[viewIndex];
   const isReviewing = viewIndex < currentDayIndex;
+  const isCheckin = day.kind === 'checkin';
   const canGoBack = viewIndex > 0;
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <ScrollView contentContainerStyle={styles.scroll}>
+      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         <View style={styles.progressWrap}>
           <View style={styles.progressRow}>
             <Text style={styles.progressLabel}>
@@ -85,20 +85,17 @@ export default function WorkoutScreen() {
           </View>
           <View style={styles.progressBarBg}>
             <View
-              style={[
-                styles.progressBarFill,
-                { width: `${(currentDayIndex / TOTAL_DAYS) * 100}%` },
-              ]}
+              style={[styles.progressBarFill, { width: `${(currentDayIndex / TOTAL_DAYS) * 100}%` }]}
             />
           </View>
         </View>
 
-        <DayDetail day={day} weekIdx={weekIdx} dayInWeek={dayInWeek} />
+        {isCheckin ? <CheckinCard day={day} /> : <DayDetail day={day} />}
 
         {isReviewing && (
           <View style={styles.reviewBanner}>
             <Ionicons name="eye-outline" size={14} color={theme.textMuted} />
-            <Text style={styles.reviewText}>Reviewing past workout</Text>
+            <Text style={styles.reviewText}>Reviewing an earlier day</Text>
           </View>
         )}
 
@@ -116,11 +113,13 @@ export default function WorkoutScreen() {
         )}
         {isReviewing ? (
           <Pressable onPress={() => setViewIndex(currentDayIndex)} style={styles.completeButton}>
-            <Text style={styles.completeButtonText}>Back to current workout</Text>
+            <Text style={styles.completeButtonText}>Back to current day</Text>
           </Pressable>
         ) : (
           <Pressable onPress={markComplete} style={styles.completeButton}>
-            <Text style={styles.completeButtonText}>Mark workout complete</Text>
+            <Text style={styles.completeButtonText}>
+              {isCheckin ? 'Mark check-in done' : 'Mark workout complete'}
+            </Text>
           </Pressable>
         )}
       </View>
@@ -133,10 +132,10 @@ function Congrats({ onReset }: { onReset: () => void }) {
     <SafeAreaView style={styles.container}>
       <View style={styles.congrats}>
         <Text style={styles.congratsEmoji}>🏆</Text>
-        <Text style={styles.congratsTitle}>6 weeks complete</Text>
+        <Text style={styles.congratsTitle}>{TOTAL_WEEKS} weeks complete</Text>
         <Text style={styles.congratsBody}>
-          You finished all {TOTAL_DAYS} days. Stronger, leaner, more defined. Set your next goal and
-          keep going.
+          You finished all {TOTAL_DAYS} days of the program. Bigger, stronger, and you've got the
+          logbook to prove it. Set your next goal and keep going.
         </Text>
         <Pressable onPress={onReset} style={styles.resetButton}>
           <Text style={styles.completeButtonText}>Restart program</Text>

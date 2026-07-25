@@ -1,0 +1,4238 @@
+{
+  "meta": {
+    "title": "8-Month Upper Body Hypertrophy Program",
+    "version": "1.4",
+    "created": "2026-07-23",
+    "duration_weeks": 34,
+    "athlete": {
+      "age": 15,
+      "height": "5'11\"",
+      "bodyweight_lbs": 140,
+      "est_body_fat_pct": 15,
+      "training_age": "2 months structured",
+      "goals": [
+        "upper body muscle mass",
+        "forearm size",
+        "visible abs and strong core",
+        "shredded appearance shirtless"
+      ],
+      "sleep_hrs": 8,
+      "protein_g": "90-100 (target: 120-140)"
+    },
+    "equipment": [
+      "Centr 3 home gym: selectorized Smith bar (up to ~330 lbs), dual adjustable cable pulleys (82.5 lbs per side), built-in pull-up bar",
+      "Attachments: 2x D-handles, triceps rope, dual-hook curl bar, ankle strap, belt, 2x 5 lb add-on weights",
+      "NO straight bar / lat bar attachment - every exercise in this plan uses D-handles, the rope, or the curl bar",
+      "Adjustable FID bench",
+      "Separate pull-up bar",
+      "Treadmill",
+      "No dumbbells, no dip bars, no resistance bands"
+    ],
+    "structure_summary": "Weeks 1-4 run 5 days/week to build a base. Weeks 5-34 run 4 days/week (school cardio covers conditioning) on a Push/Pull/Push/Pull split that hits every upper-body muscle twice per week. Forearm finishers land on 2 days per week, core finishers on 3, deloads every 8 weeks, and a check-in every 2 weeks.",
+    "how_to_use": "Load this JSON into your tracking app. Each week in 'schedule' points to a session template in 'session_templates' by day number. Each session lists exercise_ids that resolve against 'exercise_library' for full form instructions, plus a forearm_finisher and core_finisher that resolve against 'finishers'. Log weight, reps, and RIR for every set.",
+    "changelog": [
+      "1.1 - Cable curl corrected to single-arm (one arm at a time). Loads confirmed per arm, start load set to 22.5 lbs, rest extended to 75s taken after the second arm.",
+      "1.2 - Removed straight-bar triceps pushdown (no straight bar attachment). Straight bar removed as an option from straight-arm pulldown, seated cable row, cable shrug and cable static hold; all now specify rope or D-handles.",
+      "1.3 - Lat pulldown rewritten for the curl bar (no lat bar available); 75 lb working load carries over. Rope pushdown substituted into Block 1 Day 4 in place of the removed straight-bar pushdown.",
+      "1.3 - Wide-grip lat pulldown reassigned to the dual-hook curl bar (outer straight sections). Block 1 Day 4 straight-bar pushdown slot filled with overhead rope triceps extension, 3x12-15 @ 30 lbs.",
+      "1.4 - Added between-block isolation rotation (chest fly, one triceps slot, one chest-press slot, primary biceps slot) across Blocks 2-5, keeping all anchor compounds fixed. Low-to-high fly and feet-elevated push-up brought into rotation. Push B lateral raise changed to the new leaning-away variation to reduce within-week overlap and add a second delt angle. Schedule and blocks now reference per-block templates block2..block5; block2plus removed."
+    ],
+    "rotation": {
+      "principle": "Anchor compounds stay fixed the whole program so they remain progression measuring sticks. Isolation slots rotate BETWEEN blocks (never within a block) so every angle gets covered over 8 months while progressive overload is preserved inside each block.",
+      "anchors_fixed_all_program": [
+        "smith_flat_press",
+        "smith_incline_press",
+        "smith_ohp_seated",
+        "smith_bent_row",
+        "pullup",
+        "lat_pulldown_wide",
+        "lat_pulldown_neutral",
+        "seated_cable_row",
+        "single_arm_cable_row",
+        "cable_face_pull"
+      ],
+      "rotating_slots": {
+        "Push A \u00b7 chest fly": "low-to-high (B2) \u2192 high-to-low (B3) \u2192 low-to-high (B4) \u2192 high-to-low (B5)",
+        "Push A \u00b7 triceps": "rope pushdown (B2) \u2192 cable kickback (B3) \u2192 rope pushdown (B4) \u2192 cable kickback (B5)",
+        "Push B \u00b7 chest press": "cable chest press (B2) \u2192 feet-elevated push-up (B3) \u2192 cable chest press (B4) \u2192 feet-elevated push-up (B5)",
+        "Pull A \u00b7 biceps": "single-arm cable curl (B2) \u2192 high cable curl (B3) \u2192 single-arm cable curl (B4) \u2192 high cable curl (B5)"
+      },
+      "within_week_variety": "Each muscle is trained on two different days with different exercises (Push A/B, Pull A/B). Side delts now use the standing single-arm raise on Push A and the leaning-away raise on Push B \u2014 two angles, same 2x/week frequency."
+    }
+  },
+  "warmup_protocol": {
+    "duration_min": 5,
+    "steps": [
+      "2 min easy treadmill walk or arm swings to raise body temperature",
+      "Shoulder circles x10 each direction, arm crossovers x10, wrist circles x10 each way",
+      "Band-free scap work: 10 scapular pull-ups (hang and shrug down) or 10 scap push-ups",
+      "2 ramp-up sets on your first exercise: ~50% of working weight x8, then ~75% x4. These do NOT count as working sets."
+    ]
+  },
+  "progression": {
+    "method": "Double progression",
+    "rule": "Every exercise has a rep range (e.g. 8-12). Start at a weight where you can hit the BOTTOM of the range at the prescribed RIR. Each session, try to add reps. Once you can hit the TOP of the range on every prescribed set with the target RIR intact, add the smallest available increment next session and drop back to the bottom of the range. Repeat forever.",
+    "increments": {
+      "smith_bar_compounds": "10-15 lbs (or one plate/pin increment)",
+      "cable_compounds": "5-10 lbs",
+      "cable_isolation": "2.5-5 lbs, or use the 5 lb add-on weights",
+      "bodyweight": "Add reps first. Once you exceed the top of the range by 3+ reps, add load (loaded backpack) or move to a harder variation."
+    },
+    "when_you_stall": [
+      "First, check sleep and food. Two bad nights of sleep will stall a lift faster than bad programming.",
+      "Second, hold the weight and chase reps for 2 more sessions before deciding you're stuck.",
+      "Third, if a lift stalls for 3 straight sessions, drop the weight 10% and rebuild - that almost always breaks through faster than grinding.",
+      "Report stalls in your check-in and I'll adjust."
+    ],
+    "tempo_default": "2-3 seconds lowering, no bounce at the bottom, controlled press/pull, 1 second squeeze at peak contraction. Slow eccentrics are one of the biggest levers for growth and most people ignore them.",
+    "rir_definition": "RIR = Reps In Reserve. RIR 2 means you stop when you could have done 2 more clean reps. RIR 0 means true failure - no more clean reps possible. Form breakdown does not count as extra reps."
+  },
+  "safety": {
+    "no_1rm_testing": "Your previous program ended with a bench max attempt. We are not doing 1-rep max testing in this program. Rep PRs (beating your best set by a rep) give you the same feedback with a fraction of the injury risk, and heavy singles do essentially nothing for muscle growth. If you ever do want to test a max, do it with a spotter present, never alone.",
+    "smith_bar_safety": "Always set the safety catches at a height just below your bottom position on presses. On the Centr 3 specifically, be deliberate about the rotation to unlock/lock the hooks so you don't accidentally catch a hook mid-rep.",
+    "form_first": "For the entire first block, if you have to choose between adding weight and keeping perfect form, keep the form. You have 8 months. There is no rush, and technique built now compounds for decades.",
+    "pain_rule": "Muscle soreness and burn are normal. Sharp pain, joint pain, or pain that lingers into the next day in a joint is not. Stop the exercise, and if it persists more than a few days, see a doctor. Tell me about it in your check-in.",
+    "growth_plates": "You're still growing. Everything in this program - machines, cables, controlled rep ranges, no maximal attempts - is chosen to be appropriate for that. Resistance training at your age is well-supported as safe and beneficial when loads are controlled and form is prioritized, which is exactly what this is."
+  },
+  "recovery": {
+    "sleep": "8 is your current average. Aim for 8.5-9. At 15 you're still growing, and the large majority of growth hormone release and muscle repair happens during deep sleep. This is not a small detail - it will affect your results more than any exercise selection choice in this plan.",
+    "rest_days": "Rest days are training days for your recovery systems. Walking, sports, and general activity are fine. Just don't add extra hard lifting sessions.",
+    "warning_signs": [
+      "Strength dropping on multiple lifts for 2+ weeks in a row",
+      "Persistent joint pain (not muscle soreness) in elbows, shoulders, or wrists",
+      "Resting heart rate noticeably elevated, or sleep getting worse",
+      "Losing motivation to train when you normally want to"
+    ],
+    "if_warning_signs": "Take an unscheduled deload week. Half the sets, same weights, nowhere near failure. You will not lose anything, and you'll usually come back stronger."
+  },
+  "nutrition": {
+    "headline": "You are 15, 5'11\", 140 lbs, and roughly 15% body fat. You are lean already. Do NOT cut, diet, or restrict calories during this program.",
+    "why": "Your abs aren't visible yet primarily because the ab muscles themselves aren't developed enough to show, not because you're carrying too much fat. Weighted core training plus overall muscle gain will reveal them. Trying to get lean by eating less at your age would cost you muscle, strength, energy, and potentially growth - and it wouldn't work as well anyway.",
+    "approach": "Eat in a small surplus - enough that your bodyweight trends up slowly, roughly 0.5-1 lb per month on average. Your weight hasn't changed in 2 months, which means you're eating at maintenance and leaving muscle on the table.",
+    "protein": "You're at 90-100g. Aim for 120-140g per day spread across your meals. Easy additions: Greek yogurt, milk, eggs, chicken, tuna, cottage cheese, a protein shake.",
+    "practical": [
+      "Add one substantial extra eating occasion per day rather than trying to force bigger meals.",
+      "Eat something with protein and carbs within a couple hours after training.",
+      "Drink enough water - dehydration tanks strength noticeably.",
+      "Don't overthink this. Consistent whole-food eating plus enough total food beats any supplement or timing trick."
+    ],
+    "note": "Talk to your parents about the food changes since they handle groceries - and if you have any medical conditions or concerns, check with your doctor before making significant diet changes.",
+    "supplements": "None required. Creatine monohydrate is the only supplement with strong evidence behind it, but at 15 that's a conversation to have with your parents and doctor first, not something to just start."
+  },
+  "expectations": {
+    "realistic_timeline": [
+      "Weeks 1-4: Mostly neural. Weights jump fast, you feel stronger, visible change is minimal. This is normal and expected.",
+      "Weeks 5-12: First real visible changes - shoulders and upper chest usually show first. Forearms respond fast because they weren't being trained at all before.",
+      "Weeks 13-20: Strength climbs noticeably. Clothes fit differently. Top two abs likely start showing.",
+      "Weeks 21-28: The most visible block. Volume plus the strength base from block 3 is where the 'jacked' look starts landing.",
+      "Weeks 29-34: Refinement. By here you'll have a real physique and, more importantly, the knowledge to keep building on your own."
+    ],
+    "honest_note": "Eight months of consistent training as a 15-year-old male who's eating and sleeping well is genuinely a lot of change - realistically in the range of 10-20 lbs of bodyweight with most of it muscle. But it won't look like a transformation photo every 2 weeks. Progress in the mirror is slow and lumpy; progress in your logbook is fast and obvious. Judge yourself by the logbook.",
+    "photos": "Take photos in the same spot, same lighting, same time of day (morning, fasted) on the first day of each block. You will not notice change day to day. You will absolutely notice it across 8 weeks of photos."
+  },
+  "blocks": [
+    {
+      "id": "block_1",
+      "name": "Block 1 - Foundation & Calibration",
+      "weeks": "1-4",
+      "days_per_week": 5,
+      "goal": "Nail technique on every movement, establish accurate working weights, and introduce the forearm and core work you skipped in your last program. This block builds the base everything else stands on.",
+      "intensity": "RIR 2-3 early in each session, RIR 1-2 on the final exercise. Do not train to failure on the big compounds yet.",
+      "session_template": "block1",
+      "weekly_notes": {
+        "1": "CALIBRATION WEEK. Deliberately leave 2-3 reps in the tank on everything. The listed starting weights are estimates - your job is to find the real numbers and log them.",
+        "2": "Add load where week 1 felt easy. First check-in at the end of this week.",
+        "3": "Push toward the top of each rep range. Add 5-10 lbs on compounds where you hit the top of the range last week.",
+        "4": "Highest volume of the block. Take the last set of the last exercise each session to 0-1 RIR. Second check-in at the end of this week."
+      }
+    },
+    {
+      "id": "block_2",
+      "name": "Block 2 - Hypertrophy Accumulation",
+      "weeks": "5-12",
+      "days_per_week": 4,
+      "goal": "Grow. Volume climbs gradually week over week while you keep adding weight to the bar. This is the longest and most productive block.",
+      "intensity": "RIR 1-2 on compounds, RIR 0-1 on the last set of isolation work.",
+      "session_template": "block2",
+      "weekly_notes": {
+        "5": "First 4-day week. Weights carry over from block 1. Add the extra set on lateral raises.",
+        "6": "Add 1 set to ONE exercise per session (your choice - pick the weakest looking muscle). Check-in at week end.",
+        "7": "Push loads. Aim to beat week 6 on every logged lift by either reps or weight.",
+        "8": "Add a drop set to the final exercise of each session: at failure, cut the weight ~30% and rep out. Check-in at week end.",
+        "9": "Highest volume so far. Add 1 more set to lateral raises and to one back exercise.",
+        "10": "Hold volume, push load. Check-in at week end.",
+        "11": "Peak week of the block. Last set of every isolation exercise goes to true failure.",
+        "12": "DELOAD. Cut every exercise to 2 sets, keep the same weights, stop 3-4 reps short of failure. Skip cardio intervals. This is where the growth actually consolidates - do not skip it. Check-in at week end."
+      }
+    },
+    {
+      "id": "block_3",
+      "name": "Block 3 - Intensification",
+      "weeks": "13-20",
+      "days_per_week": 4,
+      "goal": "Get stronger on the main lifts so that block 4's higher-rep work can be done with much heavier weight. Rep ranges drop on compounds, isolation stays high-rep.",
+      "intensity": "Compounds move to 5-8 reps at RIR 1-2. Isolation stays 12-20 at RIR 0-1.",
+      "session_template": "block3",
+      "modifications": [
+        "Smith flat press, Smith OHP, Smith bent row: change to 4-5 sets of 5-8 reps, rest 180 seconds, add weight aggressively.",
+        "Second compound each day (incline press, pulldowns, close-grip press): 3-4 sets of 8-10.",
+        "All isolation work stays in the 12-20 rep range - this is where the pump and definition work lives.",
+        "Add myo-reps to lateral raises: one all-out set to failure, then 3-4 mini-sets of 4-5 reps with 15 seconds rest between."
+      ],
+      "weekly_notes": {
+        "13": "Transition week. Drop compound reps, add ~10-15% load. Get used to the heavier feel.",
+        "14": "Push the top sets. Check-in at week end.",
+        "15": "Add a back-off set on each main lift: after your heavy sets, drop 20% and do one set of 12-15.",
+        "16": "Check-in at week end. Assess whether the heavier loads are moving well or grinding.",
+        "17": "Heaviest compound week so far.",
+        "18": "Hold loads, add a set to isolation work. Check-in at week end.",
+        "19": "Peak week. Rep PR attempts on flat press and OHP - beat your best set by one rep, not by testing a 1-rep max.",
+        "20": "DELOAD. 2 sets per exercise, 60% of usual load, well short of failure. Check-in at week end."
+      }
+    },
+    {
+      "id": "block_4",
+      "name": "Block 4 - Volume Peak & Definition",
+      "weeks": "21-28",
+      "days_per_week": 4,
+      "goal": "Take the strength you built in block 3 and convert it into size with high volume and shorter rest. This is the block where visible change accelerates most.",
+      "intensity": "RIR 0-2 across the board. Rest periods shorten. Expect brutal pumps.",
+      "session_template": "block4",
+      "modifications": [
+        "Compounds return to 8-12 reps but with the heavier weights you built in block 3.",
+        "Cut rest on isolation work to 45 seconds.",
+        "Add one superset per session: pair an antagonist chest/back or bicep/tricep pair back to back with no rest.",
+        "Core work moves to 4 sessions per week (add core_C to day 4).",
+        "Both forearm finishers run every week as scheduled - no skipping, this is where forearm size shows up."
+      ],
+      "weekly_notes": {
+        "21": "Transition. Loads from block 3 will feel heavy at 10 reps - that's the point.",
+        "22": "Add the supersets. Check-in at week end.",
+        "23": "Add 1 set to every isolation exercise.",
+        "24": "DELOAD at end of week if fatigue is high - otherwise push through and deload week 28. Check-in at week end and tell me how you feel.",
+        "25": "Highest total volume of the entire program.",
+        "26": "Hold volume, push load. Check-in at week end.",
+        "27": "Peak week. Every isolation set's last rep should be a genuine grind.",
+        "28": "DELOAD. Half the sets, same weights. Check-in at week end."
+      }
+    },
+    {
+      "id": "block_5",
+      "name": "Block 5 - Consolidation & Best-Of",
+      "weeks": "29-34",
+      "days_per_week": 4,
+      "goal": "Combine heavy compound work with high-rep isolation on the exercises that gave YOU the best results. By now we'll know from your check-ins which movements move the needle for your body.",
+      "intensity": "Heavy compounds at RIR 1-2, isolation at RIR 0-1.",
+      "session_template": "block5",
+      "modifications": [
+        "Exercise selection gets customized at the week 28 check-in based on what has grown and what has lagged.",
+        "Each session: 2 heavy compounds at 6-8 reps, then 4 isolation exercises at 12-20 reps.",
+        "Lagging muscle groups get an extra 2-3 sets per week.",
+        "Rep PR attempts in week 33 on flat press, OHP, row, and pull-ups."
+      ],
+      "weekly_notes": {
+        "29": "New exercise selection based on your week 28 check-in.",
+        "30": "Push loads. Check-in at week end.",
+        "31": "Add intensity techniques to the final set of each isolation exercise.",
+        "32": "Check-in at week end.",
+        "33": "PEAK WEEK. Rep PR attempts. Take before/after photos in the same lighting as month 1.",
+        "34": "DELOAD and full reassessment. Final check-in - we'll build the next phase from your results."
+      }
+    }
+  ],
+  "session_templates": {
+    "block1": [
+      {
+        "day": 1,
+        "name": "Chest & Triceps",
+        "target_min": 38,
+        "main": [
+          {
+            "exercise_id": "smith_flat_press",
+            "sets": 4,
+            "reps": "8-10",
+            "rir": "2-3",
+            "rest_sec": 120,
+            "note": "Anchor lift. Week 1 is calibration - find a weight where rep 10 is genuinely hard but clean.",
+            "start_load_lbs": 155
+          },
+          {
+            "exercise_id": "smith_incline_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "2",
+            "rest_sec": 105,
+            "note": "Start lighter than you think. Full range beats big numbers.",
+            "start_load_lbs": 125
+          },
+          {
+            "exercise_id": "cable_fly_high_low",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Per side. Squeeze one full second.",
+            "start_load_lbs": 15
+          },
+          {
+            "exercise_id": "rope_pushdown",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "",
+            "start_load_lbs": 40
+          },
+          {
+            "exercise_id": "overhead_rope_extension",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Deep stretch behind the head.",
+            "start_load_lbs": 30
+          }
+        ],
+        "forearm_finisher": "forearm_A",
+        "core_finisher": "core_A",
+        "cardio": null
+      },
+      {
+        "day": 2,
+        "name": "Back & Biceps",
+        "target_min": 38,
+        "main": [
+          {
+            "exercise_id": "pullup",
+            "sets": 4,
+            "reps": "max clean reps (target 6-10)",
+            "rir": "0-1",
+            "rest_sec": 120,
+            "note": "If you can't hit 6, do 5-second negatives instead: 4 sets of 4."
+          },
+          {
+            "exercise_id": "lat_pulldown_wide",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": "Elbows down and back. Full stretch at the top.",
+            "start_load_lbs": 75
+          },
+          {
+            "exercise_id": "seated_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": "Torso stays vertical.",
+            "start_load_lbs": 67.5
+          },
+          {
+            "exercise_id": "straight_arm_pulldown",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Pure lat isolation.",
+            "start_load_lbs": 30
+          },
+          {
+            "exercise_id": "cable_curl",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 75,
+            "note": "PER ARM, one arm at a time - all reps on one side, then the other. Down from your 32.5: controlled reps, no swing, no torso rotation. Rest only after the second arm.",
+            "start_load_lbs": 22.5
+          },
+          {
+            "exercise_id": "cable_hammer_curl_rope",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "",
+            "start_load_lbs": 25
+          }
+        ],
+        "forearm_finisher": "forearm_B",
+        "core_finisher": "core_B",
+        "cardio": null
+      },
+      {
+        "day": 3,
+        "name": "Shoulders & Conditioning",
+        "target_min": 35,
+        "main": [
+          {
+            "exercise_id": "smith_ohp_seated",
+            "sets": 4,
+            "reps": "8-10",
+            "rir": "2",
+            "rest_sec": 120,
+            "note": "Re-anchor this. If 105 flies up for 10 clean reps, add 10-15 lbs next session.",
+            "start_load_lbs": 105
+          },
+          {
+            "exercise_id": "cable_lateral_raise",
+            "sets": 4,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Per arm. Go light and strict - this is the width builder.",
+            "start_load_lbs": 10
+          },
+          {
+            "exercise_id": "cable_rear_delt_fly",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "",
+            "start_load_lbs": 15
+          },
+          {
+            "exercise_id": "cable_face_pull",
+            "sets": 3,
+            "reps": "15",
+            "rir": "2",
+            "rest_sec": 45,
+            "note": "Shoulder health insurance. Elbows high.",
+            "start_load_lbs": 25
+          },
+          {
+            "exercise_id": "cable_y_raise",
+            "sets": 2,
+            "reps": "12",
+            "rir": "1-2",
+            "rest_sec": 45,
+            "note": "",
+            "start_load_lbs": 7.5
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_C",
+        "cardio": {
+          "exercise_id": "treadmill_intervals",
+          "duration_min": 12,
+          "detail": "3 min warm-up, then 6 rounds of 30s hard / 90s easy walk, 2 min cool-down."
+        }
+      },
+      {
+        "day": 4,
+        "name": "Arms & Upper Accessory",
+        "target_min": 38,
+        "main": [
+          {
+            "exercise_id": "smith_close_grip_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "2",
+            "rest_sec": 90,
+            "note": "Hands shoulder width, elbows tucked.",
+            "start_load_lbs": 125
+          },
+          {
+            "exercise_id": "bench_dip",
+            "sets": 3,
+            "reps": "max clean reps (target 12-20)",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Stop if the front of the shoulder pinches."
+          },
+          {
+            "exercise_id": "overhead_rope_extension",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "start_load_lbs": 30,
+            "note": "Replaces the straight-bar pushdown. Elbows point forward and stay close together, deep stretch behind the head. This is the only long-head work in the week besides Day 1, so make the stretch count."
+          },
+          {
+            "exercise_id": "incline_cable_curl",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Per arm. Let the arm hang fully behind you at the bottom.",
+            "start_load_lbs": 15
+          },
+          {
+            "exercise_id": "high_cable_curl",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 45,
+            "note": "Per arm. Pose and squeeze.",
+            "start_load_lbs": 12.5
+          },
+          {
+            "exercise_id": "pushup",
+            "sets": 1,
+            "reps": "max reps",
+            "rir": "0",
+            "rest_sec": 0,
+            "note": "Burnout set to finish."
+          }
+        ],
+        "forearm_finisher": "forearm_A",
+        "core_finisher": null,
+        "cardio": null
+      },
+      {
+        "day": 5,
+        "name": "Full Upper Pump & Cardio",
+        "target_min": 35,
+        "main": [
+          {
+            "exercise_id": "cable_chest_press",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Per side. Converge the hands at the front.",
+            "start_load_lbs": 30
+          },
+          {
+            "exercise_id": "lat_pulldown_neutral",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "",
+            "start_load_lbs": 65
+          },
+          {
+            "exercise_id": "cable_lateral_raise",
+            "sets": 3,
+            "reps": "15-20",
+            "rir": "0-1",
+            "rest_sec": 45,
+            "note": "Per arm. High reps, burn it out.",
+            "start_load_lbs": 7.5
+          },
+          {
+            "exercise_id": "single_arm_cable_row",
+            "sets": 3,
+            "reps": "12",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Per arm. Big stretch at the front.",
+            "start_load_lbs": 35
+          },
+          {
+            "exercise_id": "cable_hammer_curl_rope",
+            "sets": 2,
+            "reps": "15",
+            "rir": "0-1",
+            "rest_sec": 45,
+            "note": "Superset with the next exercise - no rest between.",
+            "start_load_lbs": 22.5
+          },
+          {
+            "exercise_id": "rope_pushdown",
+            "sets": 2,
+            "reps": "15",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Superset partner. Rest only after the pushdowns.",
+            "start_load_lbs": 35
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_B",
+        "cardio": {
+          "exercise_id": "treadmill_z2",
+          "duration_min": 15,
+          "detail": "Incline 5-8%, brisk walk. Conversational pace."
+        }
+      }
+    ],
+    "block2": [
+      {
+        "day": 1,
+        "name": "Push A - Chest Emphasis",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_flat_press",
+            "sets": 4,
+            "reps": "6-10",
+            "rir": "1-2",
+            "rest_sec": 150,
+            "note": "Primary strength lift. Log every set."
+          },
+          {
+            "exercise_id": "smith_incline_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 120,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_fly_low_high",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Per side. Scoop up and in, finish high. Upper-chest isolation.  [ROTATION: high-to-low / low-to-high fly \u2014 this is the Block 2 pick.]"
+          },
+          {
+            "exercise_id": "cable_lateral_raise",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Per arm."
+          },
+          {
+            "exercise_id": "rope_pushdown",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Elbows pinned, spread the rope at the bottom.  [ROTATION: rope pushdown / cable kickback \u2014 this is the Block 2 pick.]"
+          },
+          {
+            "exercise_id": "overhead_rope_extension",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Last set to failure."
+          }
+        ],
+        "forearm_finisher": "forearm_A",
+        "core_finisher": "core_A",
+        "cardio": null
+      },
+      {
+        "day": 2,
+        "name": "Pull A - Back Width & Biceps",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "pullup",
+            "sets": 4,
+            "reps": "max clean reps",
+            "rir": "0-1",
+            "rest_sec": 150,
+            "note": "Add reps week to week. Once you hit 12+, add load via a backpack."
+          },
+          {
+            "exercise_id": "lat_pulldown_wide",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "seated_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "straight_arm_pulldown",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_curl",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1",
+            "rest_sec": 75,
+            "note": "PER ARM, one side then the other. No swing. Rest after the second arm.  [ROTATION: single-arm cable curl / high cable curl \u2014 this is the Block 2 pick.]"
+          },
+          {
+            "exercise_id": "incline_cable_curl",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Per arm. Stretched position - the growth spot."
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_B",
+        "cardio": null
+      },
+      {
+        "day": 3,
+        "name": "Push B - Shoulder Emphasis",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_ohp_seated",
+            "sets": 4,
+            "reps": "6-10",
+            "rir": "1-2",
+            "rest_sec": 150,
+            "note": "Primary strength lift."
+          },
+          {
+            "exercise_id": "cable_chest_press",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": "Per side. Split stance, converge the hands at the front.  [ROTATION: cable chest press / feet-elevated push-up \u2014 this is the Block 2 pick.]"
+          },
+          {
+            "exercise_id": "cable_lateral_raise_lean",
+            "sets": 4,
+            "reps": "12-20",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Leaning-away angle \u2014 stretched-position side delt, different from the standing raise on Push A. Delts hit twice a week from two angles."
+          },
+          {
+            "exercise_id": "cable_rear_delt_fly",
+            "sets": 3,
+            "reps": "15",
+            "rir": "1",
+            "rest_sec": 45,
+            "note": ""
+          },
+          {
+            "exercise_id": "smith_close_grip_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "bench_dip",
+            "sets": 2,
+            "reps": "max clean reps",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": ""
+          }
+        ],
+        "forearm_finisher": "forearm_B",
+        "core_finisher": "core_C",
+        "cardio": null
+      },
+      {
+        "day": 4,
+        "name": "Pull B - Back Thickness & Arms",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_bent_row",
+            "sets": 4,
+            "reps": "8-10",
+            "rir": "1-2",
+            "rest_sec": 120,
+            "note": "Flat back. If it rounds, the set is over."
+          },
+          {
+            "exercise_id": "lat_pulldown_neutral",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "single_arm_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1",
+            "rest_sec": 75,
+            "note": "Per arm."
+          },
+          {
+            "exercise_id": "cable_face_pull",
+            "sets": 3,
+            "reps": "15",
+            "rir": "1-2",
+            "rest_sec": 45,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_hammer_curl_rope",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_shrug",
+            "sets": 3,
+            "reps": "12",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Two-second hold at the top."
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_A",
+        "cardio": null
+      }
+    ],
+    "block3": [
+      {
+        "day": 1,
+        "name": "Push A - Chest Emphasis",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_flat_press",
+            "sets": 4,
+            "reps": "6-10",
+            "rir": "1-2",
+            "rest_sec": 150,
+            "note": "Primary strength lift. Log every set."
+          },
+          {
+            "exercise_id": "smith_incline_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 120,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_fly_high_low",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Per side. Fixed elbow, hands cross at the bottom. Lower/mid-chest isolation.  [ROTATION: high-to-low / low-to-high fly \u2014 this is the Block 3 pick.]"
+          },
+          {
+            "exercise_id": "cable_lateral_raise",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Per arm."
+          },
+          {
+            "exercise_id": "cable_kickback",
+            "sets": 3,
+            "reps": "12-20",
+            "rir": "0-1",
+            "rest_sec": 45,
+            "note": "Per arm. Upper arm dead still, squeeze hard at full extension.  [ROTATION: rope pushdown / cable kickback \u2014 this is the Block 3 pick.]"
+          },
+          {
+            "exercise_id": "overhead_rope_extension",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Last set to failure."
+          }
+        ],
+        "forearm_finisher": "forearm_A",
+        "core_finisher": "core_A",
+        "cardio": null
+      },
+      {
+        "day": 2,
+        "name": "Pull A - Back Width & Biceps",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "pullup",
+            "sets": 4,
+            "reps": "max clean reps",
+            "rir": "0-1",
+            "rest_sec": 150,
+            "note": "Add reps week to week. Once you hit 12+, add load via a backpack."
+          },
+          {
+            "exercise_id": "lat_pulldown_wide",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "seated_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "straight_arm_pulldown",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": ""
+          },
+          {
+            "exercise_id": "high_cable_curl",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "0-1",
+            "rest_sec": 45,
+            "note": "Per arm. Upper arms parallel to the floor, pose and squeeze at the top.  [ROTATION: single-arm cable curl / high cable curl \u2014 this is the Block 3 pick.]"
+          },
+          {
+            "exercise_id": "incline_cable_curl",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Per arm. Stretched position - the growth spot."
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_B",
+        "cardio": null
+      },
+      {
+        "day": 3,
+        "name": "Push B - Shoulder Emphasis",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_ohp_seated",
+            "sets": 4,
+            "reps": "6-10",
+            "rir": "1-2",
+            "rest_sec": 150,
+            "note": "Primary strength lift."
+          },
+          {
+            "exercise_id": "pushup_feet_elevated",
+            "sets": 3,
+            "reps": "max clean reps",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Feet on the bench. 2-3s negative. Once 20+ is easy, slow the negative to 4s.  [ROTATION: cable chest press / feet-elevated push-up \u2014 this is the Block 3 pick.]"
+          },
+          {
+            "exercise_id": "cable_lateral_raise_lean",
+            "sets": 4,
+            "reps": "12-20",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Leaning-away angle \u2014 stretched-position side delt, different from the standing raise on Push A. Delts hit twice a week from two angles."
+          },
+          {
+            "exercise_id": "cable_rear_delt_fly",
+            "sets": 3,
+            "reps": "15",
+            "rir": "1",
+            "rest_sec": 45,
+            "note": ""
+          },
+          {
+            "exercise_id": "smith_close_grip_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "bench_dip",
+            "sets": 2,
+            "reps": "max clean reps",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": ""
+          }
+        ],
+        "forearm_finisher": "forearm_B",
+        "core_finisher": "core_C",
+        "cardio": null
+      },
+      {
+        "day": 4,
+        "name": "Pull B - Back Thickness & Arms",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_bent_row",
+            "sets": 4,
+            "reps": "8-10",
+            "rir": "1-2",
+            "rest_sec": 120,
+            "note": "Flat back. If it rounds, the set is over."
+          },
+          {
+            "exercise_id": "lat_pulldown_neutral",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "single_arm_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1",
+            "rest_sec": 75,
+            "note": "Per arm."
+          },
+          {
+            "exercise_id": "cable_face_pull",
+            "sets": 3,
+            "reps": "15",
+            "rir": "1-2",
+            "rest_sec": 45,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_hammer_curl_rope",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_shrug",
+            "sets": 3,
+            "reps": "12",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Two-second hold at the top."
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_A",
+        "cardio": null
+      }
+    ],
+    "block4": [
+      {
+        "day": 1,
+        "name": "Push A - Chest Emphasis",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_flat_press",
+            "sets": 4,
+            "reps": "6-10",
+            "rir": "1-2",
+            "rest_sec": 150,
+            "note": "Primary strength lift. Log every set."
+          },
+          {
+            "exercise_id": "smith_incline_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 120,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_fly_low_high",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Per side. Scoop up and in, finish high. Upper-chest isolation.  [ROTATION: high-to-low / low-to-high fly \u2014 this is the Block 4 pick.]"
+          },
+          {
+            "exercise_id": "cable_lateral_raise",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Per arm."
+          },
+          {
+            "exercise_id": "rope_pushdown",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Elbows pinned, spread the rope at the bottom.  [ROTATION: rope pushdown / cable kickback \u2014 this is the Block 4 pick.]"
+          },
+          {
+            "exercise_id": "overhead_rope_extension",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Last set to failure."
+          }
+        ],
+        "forearm_finisher": "forearm_A",
+        "core_finisher": "core_A",
+        "cardio": null
+      },
+      {
+        "day": 2,
+        "name": "Pull A - Back Width & Biceps",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "pullup",
+            "sets": 4,
+            "reps": "max clean reps",
+            "rir": "0-1",
+            "rest_sec": 150,
+            "note": "Add reps week to week. Once you hit 12+, add load via a backpack."
+          },
+          {
+            "exercise_id": "lat_pulldown_wide",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "seated_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "straight_arm_pulldown",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_curl",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1",
+            "rest_sec": 75,
+            "note": "PER ARM, one side then the other. No swing. Rest after the second arm.  [ROTATION: single-arm cable curl / high cable curl \u2014 this is the Block 4 pick.]"
+          },
+          {
+            "exercise_id": "incline_cable_curl",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Per arm. Stretched position - the growth spot."
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_B",
+        "cardio": null
+      },
+      {
+        "day": 3,
+        "name": "Push B - Shoulder Emphasis",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_ohp_seated",
+            "sets": 4,
+            "reps": "6-10",
+            "rir": "1-2",
+            "rest_sec": 150,
+            "note": "Primary strength lift."
+          },
+          {
+            "exercise_id": "cable_chest_press",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": "Per side. Split stance, converge the hands at the front.  [ROTATION: cable chest press / feet-elevated push-up \u2014 this is the Block 4 pick.]"
+          },
+          {
+            "exercise_id": "cable_lateral_raise_lean",
+            "sets": 4,
+            "reps": "12-20",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Leaning-away angle \u2014 stretched-position side delt, different from the standing raise on Push A. Delts hit twice a week from two angles."
+          },
+          {
+            "exercise_id": "cable_rear_delt_fly",
+            "sets": 3,
+            "reps": "15",
+            "rir": "1",
+            "rest_sec": 45,
+            "note": ""
+          },
+          {
+            "exercise_id": "smith_close_grip_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "bench_dip",
+            "sets": 2,
+            "reps": "max clean reps",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": ""
+          }
+        ],
+        "forearm_finisher": "forearm_B",
+        "core_finisher": "core_C",
+        "cardio": null
+      },
+      {
+        "day": 4,
+        "name": "Pull B - Back Thickness & Arms",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_bent_row",
+            "sets": 4,
+            "reps": "8-10",
+            "rir": "1-2",
+            "rest_sec": 120,
+            "note": "Flat back. If it rounds, the set is over."
+          },
+          {
+            "exercise_id": "lat_pulldown_neutral",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "single_arm_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1",
+            "rest_sec": 75,
+            "note": "Per arm."
+          },
+          {
+            "exercise_id": "cable_face_pull",
+            "sets": 3,
+            "reps": "15",
+            "rir": "1-2",
+            "rest_sec": 45,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_hammer_curl_rope",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_shrug",
+            "sets": 3,
+            "reps": "12",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Two-second hold at the top."
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_A",
+        "cardio": null
+      }
+    ],
+    "block5": [
+      {
+        "day": 1,
+        "name": "Push A - Chest Emphasis",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_flat_press",
+            "sets": 4,
+            "reps": "6-10",
+            "rir": "1-2",
+            "rest_sec": 150,
+            "note": "Primary strength lift. Log every set."
+          },
+          {
+            "exercise_id": "smith_incline_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 120,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_fly_high_low",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Per side. Fixed elbow, hands cross at the bottom. Lower/mid-chest isolation.  [ROTATION: high-to-low / low-to-high fly \u2014 this is the Block 5 pick.]"
+          },
+          {
+            "exercise_id": "cable_lateral_raise",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Per arm."
+          },
+          {
+            "exercise_id": "cable_kickback",
+            "sets": 3,
+            "reps": "12-20",
+            "rir": "0-1",
+            "rest_sec": 45,
+            "note": "Per arm. Upper arm dead still, squeeze hard at full extension.  [ROTATION: rope pushdown / cable kickback \u2014 this is the Block 5 pick.]"
+          },
+          {
+            "exercise_id": "overhead_rope_extension",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Last set to failure."
+          }
+        ],
+        "forearm_finisher": "forearm_A",
+        "core_finisher": "core_A",
+        "cardio": null
+      },
+      {
+        "day": 2,
+        "name": "Pull A - Back Width & Biceps",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "pullup",
+            "sets": 4,
+            "reps": "max clean reps",
+            "rir": "0-1",
+            "rest_sec": 150,
+            "note": "Add reps week to week. Once you hit 12+, add load via a backpack."
+          },
+          {
+            "exercise_id": "lat_pulldown_wide",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "seated_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "straight_arm_pulldown",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": ""
+          },
+          {
+            "exercise_id": "high_cable_curl",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "0-1",
+            "rest_sec": 45,
+            "note": "Per arm. Upper arms parallel to the floor, pose and squeeze at the top.  [ROTATION: single-arm cable curl / high cable curl \u2014 this is the Block 5 pick.]"
+          },
+          {
+            "exercise_id": "incline_cable_curl",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Per arm. Stretched position - the growth spot."
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_B",
+        "cardio": null
+      },
+      {
+        "day": 3,
+        "name": "Push B - Shoulder Emphasis",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_ohp_seated",
+            "sets": 4,
+            "reps": "6-10",
+            "rir": "1-2",
+            "rest_sec": 150,
+            "note": "Primary strength lift."
+          },
+          {
+            "exercise_id": "pushup_feet_elevated",
+            "sets": 3,
+            "reps": "max clean reps",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Feet on the bench. 2-3s negative. Once 20+ is easy, slow the negative to 4s.  [ROTATION: cable chest press / feet-elevated push-up \u2014 this is the Block 5 pick.]"
+          },
+          {
+            "exercise_id": "cable_lateral_raise_lean",
+            "sets": 4,
+            "reps": "12-20",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": "Leaning-away angle \u2014 stretched-position side delt, different from the standing raise on Push A. Delts hit twice a week from two angles."
+          },
+          {
+            "exercise_id": "cable_rear_delt_fly",
+            "sets": 3,
+            "reps": "15",
+            "rir": "1",
+            "rest_sec": 45,
+            "note": ""
+          },
+          {
+            "exercise_id": "smith_close_grip_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "bench_dip",
+            "sets": 2,
+            "reps": "max clean reps",
+            "rir": "0-1",
+            "rest_sec": 60,
+            "note": ""
+          }
+        ],
+        "forearm_finisher": "forearm_B",
+        "core_finisher": "core_C",
+        "cardio": null
+      },
+      {
+        "day": 4,
+        "name": "Pull B - Back Thickness & Arms",
+        "target_min": 40,
+        "main": [
+          {
+            "exercise_id": "smith_bent_row",
+            "sets": 4,
+            "reps": "8-10",
+            "rir": "1-2",
+            "rest_sec": 120,
+            "note": "Flat back. If it rounds, the set is over."
+          },
+          {
+            "exercise_id": "lat_pulldown_neutral",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": ""
+          },
+          {
+            "exercise_id": "single_arm_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1",
+            "rest_sec": 75,
+            "note": "Per arm."
+          },
+          {
+            "exercise_id": "cable_face_pull",
+            "sets": 3,
+            "reps": "15",
+            "rir": "1-2",
+            "rest_sec": 45,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_hammer_curl_rope",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": ""
+          },
+          {
+            "exercise_id": "cable_shrug",
+            "sets": 3,
+            "reps": "12",
+            "rir": "1",
+            "rest_sec": 60,
+            "note": "Two-second hold at the top."
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_A",
+        "cardio": null
+      }
+    ]
+  },
+  "finishers": {
+    "forearm_A": {
+      "id": "forearm_A",
+      "name": "Forearm Finisher A - Flexors & Grip",
+      "duration_min": "6-8",
+      "focus": "Wrist flexors, finger flexors, crushing grip - builds the thick underside of the forearm.",
+      "exercises": [
+        {
+          "exercise_id": "smith_wrist_curl",
+          "sets": 3,
+          "reps": "15-20",
+          "rest_sec": 45,
+          "start_load_lbs": 30,
+          "note": "Let the bar roll to the fingertips at the bottom every rep."
+        },
+        {
+          "exercise_id": "behind_back_wrist_curl",
+          "sets": 2,
+          "reps": "15-20",
+          "rest_sec": 45,
+          "start_load_lbs": 40,
+          "note": "Deeper stretch than the seated version."
+        },
+        {
+          "exercise_id": "dead_hang",
+          "sets": 2,
+          "reps": "max time (target 30-60s)",
+          "rest_sec": 60,
+          "start_load_lbs": 0,
+          "note": "Progress to towel hangs once you pass 60 seconds."
+        }
+      ]
+    },
+    "forearm_B": {
+      "id": "forearm_B",
+      "name": "Forearm Finisher B - Extensors & Rotators",
+      "duration_min": "6-8",
+      "focus": "Brachioradialis, wrist extensors, pronators/supinators - builds forearm WIDTH and the visible top-of-forearm shape.",
+      "exercises": [
+        {
+          "exercise_id": "cable_reverse_curl",
+          "sets": 3,
+          "reps": "12-15",
+          "rest_sec": 45,
+          "start_load_lbs": 20,
+          "note": "Wrists rigid, palms down the entire rep."
+        },
+        {
+          "exercise_id": "smith_reverse_wrist_curl",
+          "sets": 3,
+          "reps": "15-20",
+          "rest_sec": 45,
+          "start_load_lbs": 15,
+          "note": "Go light. The range is short - the squeeze is the point."
+        },
+        {
+          "exercise_id": "cable_pronation",
+          "sets": 2,
+          "reps": "15 each direction, each arm",
+          "rest_sec": 45,
+          "start_load_lbs": 5,
+          "note": "Your arm-wrestling carryover exercise. Slow and deliberate."
+        }
+      ]
+    },
+    "core_A": {
+      "id": "core_A",
+      "name": "Core A - Lower Abs",
+      "duration_min": "10-12",
+      "focus": "Lower rectus abdominis and pelvic control - the region that shows up last and needs the most work.",
+      "exercises": [
+        {
+          "exercise_id": "hanging_knee_raise",
+          "sets": 3,
+          "reps": "10-15",
+          "rest_sec": 45,
+          "note": "Curl the pelvis at the top. Progress toward straight-leg raises."
+        },
+        {
+          "exercise_id": "reverse_crunch",
+          "sets": 3,
+          "reps": "12-15",
+          "rest_sec": 45,
+          "note": "Lift the HIPS off the floor, not just the knees."
+        },
+        {
+          "exercise_id": "dead_bug",
+          "sets": 2,
+          "reps": "10 each side",
+          "rest_sec": 30,
+          "note": "Lower back stays flat. Slow."
+        }
+      ]
+    },
+    "core_B": {
+      "id": "core_B",
+      "name": "Core B - Weighted Flexion",
+      "duration_min": "10-12",
+      "focus": "Building actual ab MUSCLE thickness with progressive load. This is what makes abs pop rather than just being flat.",
+      "exercises": [
+        {
+          "exercise_id": "cable_crunch",
+          "sets": 4,
+          "reps": "12-15",
+          "rest_sec": 60,
+          "start_load_lbs": 30,
+          "note": "Treat this like any other lift - add weight over time."
+        },
+        {
+          "exercise_id": "hollow_hold",
+          "sets": 3,
+          "reps": "20-40 seconds",
+          "rest_sec": 45,
+          "note": "Lower back pressed flat. Lower the limbs to make it harder."
+        },
+        {
+          "exercise_id": "bicycle_crunch",
+          "sets": 2,
+          "reps": "20 total, slow",
+          "rest_sec": 30,
+          "note": "Two seconds per rep. No neck pulling."
+        }
+      ]
+    },
+    "core_C": {
+      "id": "core_C",
+      "name": "Core C - Obliques & Anti-Rotation",
+      "duration_min": "10-12",
+      "focus": "Obliques, deep core stability, and the bracing strength that supports every press and row you do.",
+      "exercises": [
+        {
+          "exercise_id": "pallof_press",
+          "sets": 3,
+          "reps": "10 each side, 3s hold",
+          "rest_sec": 45,
+          "start_load_lbs": 20,
+          "note": "Do not let the torso rotate."
+        },
+        {
+          "exercise_id": "side_plank",
+          "sets": 3,
+          "reps": "30-45s each side",
+          "rest_sec": 30,
+          "note": "Add hip dips once static holds get easy."
+        },
+        {
+          "exercise_id": "cable_woodchop",
+          "sets": 2,
+          "reps": "12 each side",
+          "rest_sec": 45,
+          "start_load_lbs": 25,
+          "note": "Rotate through the torso, arms stay long."
+        },
+        {
+          "exercise_id": "long_lever_plank",
+          "sets": 2,
+          "reps": "20-40 seconds",
+          "rest_sec": 30,
+          "note": "Replaces your long standard planks - much harder, much shorter."
+        }
+      ]
+    }
+  },
+  "exercise_library": {
+    "smith_flat_press": {
+      "id": "smith_flat_press",
+      "name": "Smith Machine Flat Bench Press",
+      "category": "chest",
+      "equipment": "Smith bar + flat bench",
+      "setup": "Bench centered under the bar so the bar path lands on your lower chest / nipple line, not your throat. Feet flat and planted, glutes and upper back on the bench, slight natural arch in the lower back, shoulder blades pulled back and DOWN into the bench.",
+      "grip": "Pronated (palms forward), thumbs wrapped around the bar. Width: forearms vertical when the bar touches your chest \u2014 usually about 1.5x shoulder width. Wrists stacked straight over the elbows, bar sitting low in the palm near the heel of the hand, not up in the fingers.",
+      "execution": "Unrack. Lower under control over 2-3 seconds until the bar lightly touches your lower chest. Pause a beat with no bounce. Press up and slightly back, driving through the mid-palm. Stop just short of locking the elbows out hard.",
+      "cues": [
+        "Shoulder blades stay pinned back and down the entire set",
+        "Elbows tucked to roughly 45-60 degrees from your torso, not flared to 90",
+        "Chest up, ribs down - don't let the ribcage flare",
+        "Push the bench away from you rather than pushing the bar up"
+      ],
+      "common_mistakes": [
+        "Bouncing the bar off the chest",
+        "Flaring elbows straight out to the sides (shoulder pain)",
+        "Letting shoulders round forward at lockout",
+        "Butt lifting off the bench"
+      ],
+      "notes": "Because the Smith bar is counterbalanced and on a fixed rail, your stack number will not match a free-barbell number. That is fine - we only compare you to you."
+    },
+    "smith_incline_press": {
+      "id": "smith_incline_press",
+      "name": "Smith Machine Incline Press",
+      "category": "chest",
+      "equipment": "Smith bar + bench at 30-45 deg",
+      "setup": "Set the bench to 30-45 degrees (30 is more upper chest, 45 pulls in more front delt). Position so the bar path meets your upper chest / collarbone area.",
+      "grip": "Pronated, slightly narrower than flat bench. Forearms vertical at the bottom.",
+      "execution": "Lower over 2-3 seconds to the upper chest, touch lightly, press back up. Keep the same shoulder-blade set as flat pressing.",
+      "cues": [
+        "Think about pushing your upper chest INTO the bar on the way down",
+        "Keep the head on the pad - no craning forward",
+        "Do not let the bar drift down toward the belly"
+      ],
+      "common_mistakes": [
+        "Bench angle too steep - it becomes a shoulder press",
+        "Shrugging the shoulders up at the top",
+        "Shortening the range of motion as you fatigue"
+      ],
+      "notes": "Start this lighter than your flat press. If you were using the same load on both, one of them had a shortened range of motion."
+    },
+    "cable_chest_press": {
+      "id": "cable_chest_press",
+      "name": "Standing Cable Chest Press",
+      "category": "chest",
+      "equipment": "Dual cables, D-handles, mid pulley",
+      "setup": "Set both pulleys to about chest height. Grab a handle in each hand, step forward into a split stance (one foot back for balance), lean forward slightly about 10-15 degrees.",
+      "grip": "Neutral to slightly pronated. Wrists straight and stacked behind the knuckles.",
+      "execution": "Start with hands wide and elbows back, chest stretched. Press forward and slightly IN so the handles nearly touch in front of your sternum. Squeeze for a full second, then let the hands travel back wide and slow.",
+      "cues": [
+        "The squeeze at the front matters more than the load - bring the hands together",
+        "Keep the ribcage down and abs braced so you don't arch",
+        "Slow negative, at least 3 seconds"
+      ],
+      "common_mistakes": [
+        "Standing bolt upright - you lose the chest angle",
+        "Pressing straight forward instead of converging",
+        "Load too heavy so the torso twists"
+      ],
+      "notes": "Great chest builder that the Smith bar can't give you, because cables let the hands converge."
+    },
+    "cable_fly_high_low": {
+      "id": "cable_fly_high_low",
+      "name": "High-to-Low Cable Fly",
+      "category": "chest",
+      "equipment": "Dual cables, D-handles, high pulley",
+      "setup": "Both pulleys set high, above head height. Grab handles, step to the middle, split stance, slight forward torso lean.",
+      "grip": "Neutral grip, palms facing each other/down. Soft bend in the elbow that stays LOCKED at that angle the whole rep.",
+      "execution": "Arms start wide and high with the chest stretched. Sweep the hands down and together to meet in front of your hips/lower abs. Hold the squeeze one second. Return slowly and let the chest stretch at the top.",
+      "cues": [
+        "Elbow angle never changes - it's a hug, not a press",
+        "Cross the hands slightly at the bottom for extra squeeze",
+        "Feel the stretch at the top, that's where growth happens"
+      ],
+      "common_mistakes": [
+        "Turning it into a press by bending and straightening the elbows",
+        "Going too heavy and using the shoulders",
+        "Cutting the stretch short at the top"
+      ],
+      "notes": "Targets the lower/mid chest fibers."
+    },
+    "cable_fly_low_high": {
+      "id": "cable_fly_low_high",
+      "name": "Low-to-High Cable Fly",
+      "category": "chest",
+      "equipment": "Dual cables, D-handles, low pulley",
+      "setup": "Both pulleys at the lowest setting. Handles in hands, step forward, stand tall with a slight forward lean.",
+      "grip": "Neutral, palms facing forward/up. Fixed soft elbow bend.",
+      "execution": "Start with arms down and slightly back. Sweep up and together, finishing with the hands meeting around upper-chest / chin height. Squeeze, return slow.",
+      "cues": [
+        "Think 'scoop up and in'",
+        "Keep shoulders pulled back - don't let them roll forward",
+        "Finish high, not out in front"
+      ],
+      "common_mistakes": [
+        "Shrugging at the top so the traps take over",
+        "Leaning back to heave the weight up"
+      ],
+      "notes": "Targets the upper chest. Pairs well with incline pressing."
+    },
+    "pushup": {
+      "id": "pushup",
+      "name": "Push-Up",
+      "category": "chest",
+      "equipment": "Bodyweight",
+      "setup": "Hands just outside shoulder width, under the shoulders or a touch lower. Body in one straight line from head to heels, glutes and abs squeezed.",
+      "grip": "Palms flat, fingers spread, index fingers pointing forward or very slightly out. Screw the hands outward into the floor to create shoulder stability.",
+      "execution": "Lower under control until the chest is an inch off the floor, elbows at ~45 degrees. Press back up without letting the hips sag or pike.",
+      "cues": [
+        "Squeeze glutes and abs to keep a rigid plank",
+        "Full lockout at the top, protract the shoulder blades slightly",
+        "Elbows back at 45, not flared wide"
+      ],
+      "common_mistakes": [
+        "Hips sagging or piking up",
+        "Head dropping forward, chin poking",
+        "Half reps once you fatigue"
+      ],
+      "notes": "You can do 45 - so we'll mostly use these as burnouts, or make them harder with feet elevated on the bench or a slow 4-second negative."
+    },
+    "pushup_feet_elevated": {
+      "id": "pushup_feet_elevated",
+      "name": "Feet-Elevated Push-Up",
+      "category": "chest",
+      "equipment": "Bodyweight + bench",
+      "setup": "Feet up on the bench, hands on the floor. Same plank rigidity as a normal push-up.",
+      "grip": "Same as push-up.",
+      "execution": "Lower until the chest nears the floor, press up. The higher the feet, the more upper chest and front delt involvement.",
+      "cues": [
+        "Don't let the hips pike up - keep the line",
+        "Control the negative, 2-3 seconds"
+      ],
+      "common_mistakes": [
+        "Hips rising to make it easier",
+        "Bouncing off the floor"
+      ],
+      "notes": "Your progression once regular push-ups are easy for 40+."
+    },
+    "bench_dip": {
+      "id": "bench_dip",
+      "name": "Bench Dip",
+      "category": "chest_triceps",
+      "equipment": "Bench",
+      "setup": "Hands on the edge of the bench behind you, fingers over the edge, hips just off the bench. Legs extended out (harder) or bent (easier).",
+      "grip": "Palms down, hands about shoulder width, gripping the bench edge.",
+      "execution": "Lower by bending the elbows until the upper arms are roughly parallel to the floor - no lower. Press back up by driving through the palms and extending the elbows.",
+      "cues": [
+        "Keep the back close to the bench, don't drift forward",
+        "Elbows point straight back, not out",
+        "Chest up, shoulders down"
+      ],
+      "common_mistakes": [
+        "Going too deep and stressing the front of the shoulder",
+        "Elbows flaring outward",
+        "Using leg drive to bounce out of the bottom"
+      ],
+      "notes": "Stop the set if you feel a pinch in the front of the shoulder. This is a triceps move first, chest second."
+    },
+    "smith_ohp_seated": {
+      "id": "smith_ohp_seated",
+      "name": "Seated Smith Machine Overhead Press",
+      "category": "shoulders",
+      "equipment": "Smith bar + bench upright",
+      "setup": "Bench set to fully upright (or 80-85 degrees, which is a bit friendlier on the lower back). Sit so the bar path passes just in front of your face and lands at collarbone height.",
+      "grip": "Pronated, forearms vertical at the bottom - usually a bit wider than shoulder width. Wrists straight, bar low in the palm.",
+      "execution": "Lower under control to just below chin / collarbone height. Press straight up, stopping just short of full elbow lockout. Keep the head neutral, don't throw it forward.",
+      "cues": [
+        "Brace the abs hard and keep the ribs down - no big backward lean",
+        "Elbows slightly in front of the bar, not straight out to the sides",
+        "Squeeze the glutes if standing; press the back into the pad if seated"
+      ],
+      "common_mistakes": [
+        "Excessive lower-back arch to turn it into an incline press",
+        "Bar going behind the head (bad for the shoulder joint)",
+        "Shrugging heavily at the top"
+      ],
+      "notes": "Your reported 130 for 8 is high relative to your bench - likely the counterbalance. We'll re-anchor loads in week 1 based on how the reps actually feel."
+    },
+    "cable_lateral_raise": {
+      "id": "cable_lateral_raise",
+      "name": "Single-Arm Cable Lateral Raise",
+      "category": "shoulders",
+      "equipment": "Cable, low pulley, D-handle",
+      "setup": "Pulley at the lowest setting. Stand side-on to the machine, grab the handle with the OUTSIDE hand so the cable crosses in front of your body. Hold the frame with the other hand and lean away slightly.",
+      "grip": "Neutral grip on the D-handle. Slight bend in the elbow, held constant.",
+      "execution": "Raise the arm out to the side up to shoulder height - no higher. Lead with the elbow, not the hand. Pause one second at the top, lower over 3 seconds fighting the cable.",
+      "cues": [
+        "Pinky slightly higher than thumb at the top (like pouring a jug), but don't overdo it",
+        "Keep the trap relaxed - shoulder DOWN, away from the ear",
+        "No swinging - if your body moves, it's too heavy"
+      ],
+      "common_mistakes": [
+        "Using body english to throw the weight up",
+        "Going above shoulder height and turning it into a trap exercise",
+        "Shrugging at the top"
+      ],
+      "notes": "This is your #1 exercise for shoulder width. Go lighter than your ego wants - 10-12.5 lbs for clean 12-15 reps beats 17.5 for 3 sloppy ones."
+    },
+    "cable_rear_delt_fly": {
+      "id": "cable_rear_delt_fly",
+      "name": "Cable Rear Delt Fly (Crossover)",
+      "category": "shoulders_back",
+      "equipment": "Dual cables, high-ish pulleys, D-handles",
+      "setup": "Pulleys set at about shoulder or slightly above shoulder height. Grab the LEFT handle with the RIGHT hand and vice versa so the cables cross in front of you. Step back so there's tension, slight forward lean.",
+      "grip": "Neutral grip. Elbows slightly bent and fixed.",
+      "execution": "Pull the hands apart and back in a wide arc, finishing with arms out to the sides in a T. Squeeze the rear delts and the space between the shoulder blades. Return slow.",
+      "cues": [
+        "Think 'pull the hands apart', not 'row'",
+        "Keep the chest proud and shoulders down",
+        "Squeeze for a full second at the end range"
+      ],
+      "common_mistakes": [
+        "Bending the elbows and turning it into a row (biceps take over)",
+        "Shrugging",
+        "Too heavy - rear delts are small, they need reps not load"
+      ],
+      "notes": "Rear delts round out the shoulder from the side. Most people badly undertrain them."
+    },
+    "cable_face_pull": {
+      "id": "cable_face_pull",
+      "name": "Cable Face Pull",
+      "category": "shoulders_back",
+      "equipment": "Cable, rope, high pulley",
+      "setup": "Rope attached to a pulley set slightly above head height. Step back into a staggered stance with tension on the cable, arms extended forward.",
+      "grip": "Neutral grip, thumbs pointing back toward you, palms facing each other or slightly up.",
+      "execution": "Pull the rope toward your forehead/eyes, separating the two ends of the rope as you go, until the hands end up beside your ears with elbows high and wide. Squeeze, return slow with control.",
+      "cues": [
+        "Elbows stay HIGH - at or above shoulder height",
+        "Pull the rope apart, don't just pull it back",
+        "Externally rotate at the end so the knuckles face the ceiling"
+      ],
+      "common_mistakes": [
+        "Elbows dropping low so it becomes a row",
+        "Leaning back and using the whole body",
+        "Too heavy to complete the external rotation"
+      ],
+      "notes": "Best insurance policy for shoulder health when you're doing a lot of pressing. Never skip these."
+    },
+    "cable_y_raise": {
+      "id": "cable_y_raise",
+      "name": "Cable Y-Raise",
+      "category": "shoulders",
+      "equipment": "Dual cables, low pulleys, D-handles",
+      "setup": "Pulleys at the lowest position, cables crossed in front of you (left handle in right hand and vice versa). Stand tall.",
+      "grip": "Neutral grip, elbows nearly straight.",
+      "execution": "Raise both arms up and out into a Y shape overhead, thumbs leading. Control the descent.",
+      "cues": [
+        "Keep traps as relaxed as you can",
+        "Full Y overhead, arms at about 45 degrees from the midline"
+      ],
+      "common_mistakes": [
+        "Shrugging heavily",
+        "Bending the elbows"
+      ],
+      "notes": "Hits front and side delts plus the lower traps. Light weight only."
+    },
+    "cable_shrug": {
+      "id": "cable_shrug",
+      "name": "Cable Shrug",
+      "category": "shoulders_back",
+      "equipment": "Dual cables, low pulleys, two D-handles",
+      "setup": "Both pulleys at the lowest setting, a D-handle in each hand at your sides. Stand tall midway between the towers, arms straight, shoulders relaxed down.",
+      "grip": "Neutral, palms facing your thighs. Grip firmly - the handles will try to slide as you fatigue.",
+      "execution": "Shrug the shoulders straight UP toward the ears. Hold the top for 2 seconds. Lower slowly and let the shoulders sink for a full stretch.",
+      "cues": [
+        "Straight up and down - no rolling the shoulders",
+        "Pause at the top, that's the whole exercise",
+        "Keep the arms totally straight, they're just hooks"
+      ],
+      "common_mistakes": [
+        "Rolling the shoulders backward in circles",
+        "Bending the elbows and pulling with the biceps",
+        "No pause, just bouncing"
+      ],
+      "notes": ""
+    },
+    "pullup": {
+      "id": "pullup",
+      "name": "Pull-Up",
+      "category": "back",
+      "equipment": "Pull-up bar",
+      "setup": "Hang from the bar with arms fully extended. Set the shoulders by pulling the shoulder blades down and back before the first rep. Cross the ankles, squeeze the glutes so the body doesn't swing.",
+      "grip": "Pronated (palms away), roughly 1.5x shoulder width. Wrap the thumb over the bar or leave it off - your preference. Grip the bar hard.",
+      "execution": "Pull the elbows down and into your sides, driving the chest toward the bar, until the chin clears. Lower over 3 seconds to a full dead hang.",
+      "cues": [
+        "Think 'pull the elbows to the back pockets', not 'pull the chin up'",
+        "Chest up, slight backward lean of the torso",
+        "Full dead hang each rep - no half reps"
+      ],
+      "common_mistakes": [
+        "Kipping / swinging",
+        "Not going all the way down",
+        "Shrugging the shoulders up at the bottom"
+      ],
+      "notes": "If you can't hit the target reps, use SLOW NEGATIVES: jump to the top, lower over 5 seconds. Three to five of those builds pull-ups fast."
+    },
+    "pullup_neutral": {
+      "id": "pullup_neutral",
+      "name": "Neutral-Grip Pull-Up",
+      "category": "back",
+      "equipment": "Pull-up bar (multi-grip)",
+      "setup": "Same as the pull-up but using the parallel/neutral handles.",
+      "grip": "Palms facing each other, shoulder width.",
+      "execution": "Same execution as pull-up. This grip is easier on the shoulders and elbows and brings in a bit more biceps and lower lat.",
+      "cues": [
+        "Drive the elbows down and back",
+        "Full stretch at the bottom"
+      ],
+      "common_mistakes": [
+        "Cutting range of motion short"
+      ],
+      "notes": ""
+    },
+    "lat_pulldown_wide": {
+      "id": "lat_pulldown_wide",
+      "name": "Wide-Grip Lat Pulldown (Curl Bar)",
+      "category": "back",
+      "equipment": "Cable, dual-hook curl bar, high pulley",
+      "setup": "Curl bar on the high pulley. Sit on the bench facing the machine, feet planted and wedged so you don't get pulled up out of the seat. Lean back about 15-20 degrees and hold that exact angle for the whole set - the torso must not rock.",
+      "grip": "Pronated, hands out on the OUTER straight sections of the curl bar, as wide as the bar allows - wide enough that your forearms are vertical when the bar reaches your chest. Wrists straight. The slight angle of the bar is easier on the wrists than a true straight bar, so this is not a downgrade.",
+      "execution": "Start with the arms fully extended and let the shoulders stretch UP toward the pulley. Pull the bar to your upper chest by driving the elbows down and slightly back. Squeeze the lats for a beat at the bottom, then let the bar rise slowly over 3 seconds, allowing the shoulders to stretch up again at the top.",
+      "cues": [
+        "Depress the shoulder blades FIRST, then bend the elbows - that sequence is what makes it a lat exercise instead of a bicep exercise",
+        "Chest up and proud, bar comes to you",
+        "Because the curl bar is short, your grip is closer than a true wide bar - drive the elbows DOWN and out slightly to keep the lats loaded rather than letting it become a narrow row",
+        "Full stretch at the top of every rep"
+      ],
+      "common_mistakes": [
+        "Never pull behind the neck - unnecessary shoulder risk with no benefit",
+        "Rocking the torso back and forth to generate momentum",
+        "Hands creeping inward on the bar as you fatigue",
+        "Yanking with the biceps instead of leading with the elbows"
+      ],
+      "notes": "Run with the curl bar on the high pulley. Grip the outer straight sections for maximum width - that width emphasis is what builds the V-taper. Because the curl bar is narrower than a dedicated lat bar, you will not get a truly wide grip, so the neutral-grip pulldown and pull-ups carry more of the width work in this program."
+    },
+    "lat_pulldown_neutral": {
+      "id": "lat_pulldown_neutral",
+      "name": "Neutral-Grip Lat Pulldown",
+      "category": "back",
+      "equipment": "Cable, two D-handles or low-row handle, high pulley",
+      "setup": "Same setup as the wide pulldown but with the double-D handle or two D-handles.",
+      "grip": "Palms facing each other, shoulder width.",
+      "execution": "Pull the handles to the lower chest, elbows driving down close to the body. Squeeze, then control back up to a full stretch.",
+      "cues": [
+        "Slightly more backward lean than the wide version is fine",
+        "Elbows tight to the ribs"
+      ],
+      "common_mistakes": [
+        "Rocking the torso",
+        "Short range of motion at the top"
+      ],
+      "notes": "Hits the lats with more emphasis on thickness and lower lat."
+    },
+    "straight_arm_pulldown": {
+      "id": "straight_arm_pulldown",
+      "name": "Straight-Arm Pulldown",
+      "category": "back",
+      "equipment": "Cable, rope, high pulley",
+      "setup": "Pulley set high. Stand facing the machine, arms extended overhead holding the bar, step back so there's tension. Hinge forward slightly at the hips, chest up, soft knees.",
+      "grip": "Neutral grip on the rope, thumbs up, hands a few inches apart. Elbows almost straight with a small fixed bend.",
+      "execution": "Keeping the arms straight, pull the bar down in an arc until it reaches your thighs. Squeeze the lats hard. Let it travel back up slowly to a full overhead stretch.",
+      "cues": [
+        "Elbow angle never changes",
+        "Feel the lats stretch overhead - that's the point of the exercise",
+        "Brace the abs so the lower back doesn't arch"
+      ],
+      "common_mistakes": [
+        "Bending the elbows and turning it into a pushdown",
+        "Letting the torso rock up and down",
+        "Too much weight"
+      ],
+      "notes": "Pure lat isolation with zero biceps. Excellent for learning to actually FEEL your lats."
+    },
+    "seated_cable_row": {
+      "id": "seated_cable_row",
+      "name": "Seated Cable Row",
+      "category": "back",
+      "equipment": "Cable, low pulleys, two D-handles",
+      "setup": "Pulleys low. Sit on the bench facing the machine, feet flat on the floor braced, knees slightly bent. Sit tall with the chest up. Torso stays roughly vertical the whole set.",
+      "grip": "Neutral with D-handles, or pronated on the bar. Wrists straight.",
+      "execution": "Start with the arms extended and let the shoulder blades stretch forward. Pull the handles to your lower ribs / belly button, driving the elbows straight back and squeezing the shoulder blades together. Pause a beat. Return slowly to a full stretch.",
+      "cues": [
+        "Lead with the elbows, hands are just hooks",
+        "Squeeze the shoulder blades together at the end of every rep",
+        "Don't lean back past vertical to move more weight"
+      ],
+      "common_mistakes": [
+        "Rocking the torso back and forth like a rowing machine",
+        "Shrugging the shoulders up during the pull",
+        "Cutting the forward stretch short"
+      ],
+      "notes": "Your setup (bench + feet on floor + low pulleys) is exactly right. Keep it."
+    },
+    "single_arm_cable_row": {
+      "id": "single_arm_cable_row",
+      "name": "Single-Arm Cable Row",
+      "category": "back",
+      "equipment": "Cable, low/mid pulley, D-handle",
+      "setup": "Pulley at hip height. Stand in a staggered stance facing the machine, opposite foot forward. Free hand on the frame or on your hip.",
+      "grip": "Neutral grip.",
+      "execution": "Reach forward and let the shoulder blade stretch all the way forward, even allowing a slight torso rotation. Pull the elbow back past the ribs, retracting the shoulder blade. Squeeze, return slow with a full stretch.",
+      "cues": [
+        "Let the shoulder travel forward at the start for extra range of motion",
+        "Elbow stays close to the body",
+        "Keep the hips square"
+      ],
+      "common_mistakes": [
+        "Twisting the whole torso to yank the weight",
+        "Short range at the front"
+      ],
+      "notes": "The extra range you get from one arm at a time makes this one of the best back exercises available on a cable machine."
+    },
+    "smith_bent_row": {
+      "id": "smith_bent_row",
+      "name": "Smith Machine Bent-Over Row",
+      "category": "back",
+      "equipment": "Smith bar",
+      "setup": "Set the bar low, around knee height. Stand with feet hip width, hinge at the hips until the torso is about 45 degrees to the floor (or lower for more lat, higher for more upper back). Knees soft, back flat and braced, chest up.",
+      "grip": "Pronated, slightly wider than shoulder width. Wrists straight.",
+      "execution": "Pull the bar to your lower ribs / upper stomach, elbows driving back at about 45 degrees. Squeeze the shoulder blades. Lower under control to a full arm extension without letting the back round.",
+      "cues": [
+        "Flat back at ALL times - if the back rounds, the set is over",
+        "Brace the abs like you're about to get punched",
+        "Bar travels to the belly, not the chest"
+      ],
+      "common_mistakes": [
+        "Rounding the lower back",
+        "Standing up more and more as the set gets hard",
+        "Jerking the weight up with the legs and hips"
+      ],
+      "notes": "Start conservative here. Technique on hinged rows matters more than load, especially while you're still growing."
+    },
+    "cable_curl": {
+      "id": "cable_curl",
+      "name": "Single-Arm Cable Curl",
+      "category": "biceps",
+      "equipment": "Cable, low pulley, one D-handle",
+      "setup": "Pulley at the lowest setting, one D-handle attached. Stand facing the machine roughly a foot back so there is already tension on the cable with your arm hanging straight. Feet staggered for stability, chest up, shoulders back. Working elbow pinned against your ribs. Free hand on your hip or lightly on the frame - not pushing off your thigh.",
+      "grip": "Supinated (palm up) on the D-handle. Wrist straight and rigid - do not let it curl back or flop as you fatigue.",
+      "execution": "Curl the handle up by bending the elbow only, until the forearm is just past vertical. Squeeze the bicep hard for one full second at the top. Lower over 3 seconds to a full stretch with the arm nearly straight and the cable still loaded. Complete every rep on one arm, then switch. One 'set' means both arms - the rest timer starts only after the second arm finishes.",
+      "cues": [
+        "The elbow is a hinge bolted to your ribs - it does not travel forward, back, or out",
+        "Do not let the torso rotate or lean toward the working arm to help the rep",
+        "Full stretch at the bottom - most people cheat this",
+        "Working one side at a time means zero help from bracing against the other arm, so the honest weight is lower than a two-handed version"
+      ],
+      "common_mistakes": [
+        "Twisting or swinging the torso to start each rep",
+        "Elbow drifting forward at the top, which dumps the tension off the bicep",
+        "Stopping the negative halfway down",
+        "Pushing off the thigh with the free hand"
+      ],
+      "notes": "ALL LOADS ARE PER ARM, performed one arm at a time (all reps left, then all reps right). Your reported 32.5 per hand for 4 reps is a max-effort load, not a growth load - start at 22.5 and own 10-12 clean reps. Because each set is two working bouts back to back, expect this exercise to take about twice as long as the rest of your accessories. That is accounted for in the session time estimate."
+    },
+    "cable_curl_bar_alt": {
+      "id": "cable_curl_bar_alt",
+      "name": "Cable Curl (Curl Bar)",
+      "category": "biceps",
+      "equipment": "Single cable, low pulley, dual-hook curl bar",
+      "setup": "Pulley at the lowest setting, curl bar attached. Stand about a foot back so there's tension at the bottom. Elbows pinned at your sides.",
+      "grip": "Supinated (palms up) on the angled sections of the curl bar - the angle is easier on the wrists than a straight bar.",
+      "execution": "Curl the bar up by bending the elbows only. Squeeze one second at the top, lower over 3 seconds to a full stretch.",
+      "cues": [
+        "Elbows fixed at your sides",
+        "No swinging",
+        "Full stretch at the bottom"
+      ],
+      "common_mistakes": [
+        "Swinging the torso",
+        "Elbows drifting forward at the top"
+      ],
+      "notes": "RESERVE / VARIATION ONLY. Load here is TOTAL across both hands, so it is NOT comparable to your single-arm numbers - do not log the two in the same column. Expect the two-handed total to land around 1.7-1.8x your per-arm load, not 2x. Use this when you are short on time, since it halves the working duration of the exercise."
+    },
+    "cable_hammer_curl_rope": {
+      "id": "cable_hammer_curl_rope",
+      "name": "Rope Hammer Curl",
+      "category": "biceps_forearms",
+      "equipment": "Cable, low pulley, rope",
+      "setup": "Rope on the low pulley. Stand tall, elbows at your sides.",
+      "grip": "Neutral grip, palms facing each other, thumbs on top. Grip the rope near the ends.",
+      "execution": "Curl the rope up keeping the palms facing each other the whole way. Pull the rope ends slightly apart at the top. Squeeze, lower over 3 seconds.",
+      "cues": [
+        "Neutral grip the whole rep - no rotation",
+        "Elbows locked at your sides",
+        "Spread the rope ends at the top for a harder squeeze"
+      ],
+      "common_mistakes": [
+        "Rotating the wrists",
+        "Swinging"
+      ],
+      "notes": "Hammer grip hits the brachialis (which pushes the bicep UP and makes the arm look thicker) and the brachioradialis in the forearm. Double win for your goals."
+    },
+    "incline_cable_curl": {
+      "id": "incline_cable_curl",
+      "name": "Incline Bench Cable Curl",
+      "category": "biceps",
+      "equipment": "Cable, low pulley, D-handle, bench at 45-60 deg",
+      "setup": "Bench set to about 45-60 degrees, positioned so you sit facing away from the low pulley. Sit back against the pad with the working arm hanging straight down and slightly BEHIND your torso.",
+      "grip": "Supinated, D-handle. Palm up.",
+      "execution": "With the upper arm fixed and hanging back, curl the handle up. Squeeze at the top, lower all the way until the arm is fully straight and you feel a strong stretch at the front of the shoulder/bicep.",
+      "cues": [
+        "The stretched bottom position is the whole point - let the arm hang fully",
+        "Do not let the elbow drift forward",
+        "Keep the back flat against the pad"
+      ],
+      "common_mistakes": [
+        "Coming off the pad",
+        "Shortening the bottom of the rep"
+      ],
+      "notes": "The stretched-position bicep exercise. Excellent for building the long head, which gives the bicep its peak."
+    },
+    "high_cable_curl": {
+      "id": "high_cable_curl",
+      "name": "High Cable Curl (Double Biceps)",
+      "category": "biceps",
+      "equipment": "Dual cables, high pulleys, D-handles",
+      "setup": "Both pulleys set above head height. Grab a handle in each hand, step to the center, arms out to the sides in a T, palms up.",
+      "grip": "Supinated, arms out wide at shoulder height.",
+      "execution": "Curl both hands toward your ears by bending the elbows only. Squeeze hard in a front-double-bicep pose. Return slow to straight arms.",
+      "cues": [
+        "Upper arms stay fixed, parallel to the floor",
+        "Squeeze like you're posing",
+        "Light weight, high reps"
+      ],
+      "common_mistakes": [
+        "Letting the elbows drop",
+        "Too heavy so the torso twists"
+      ],
+      "notes": "Peak-contraction bicep exercise. Fun and it gives a huge pump."
+    },
+    "rope_pushdown": {
+      "id": "rope_pushdown",
+      "name": "Rope Triceps Pushdown",
+      "category": "triceps",
+      "equipment": "Cable, high pulley, rope",
+      "setup": "Rope on a high pulley. Stand a step back, feet staggered, slight forward lean, elbows pinned tight at your sides.",
+      "grip": "Neutral grip, hands near the rope ends, thumbs up.",
+      "execution": "Starting with elbows bent to ~90, push down and pull the rope ends APART at the bottom, ending with the arms fully straight and the hands beside your thighs. Squeeze the triceps for one second. Let the hands come back up under control until you feel a stretch, without letting the elbows drift forward.",
+      "cues": [
+        "Elbows glued to the ribs - they must not travel",
+        "Spread the rope apart at the bottom for full contraction",
+        "Full lockout every rep"
+      ],
+      "common_mistakes": [
+        "Elbows flaring forward and turning it into a chest press",
+        "Using body weight to push the rope down",
+        "Not locking out at the bottom"
+      ],
+      "notes": ""
+    },
+    "overhead_rope_extension": {
+      "id": "overhead_rope_extension",
+      "name": "Overhead Rope Triceps Extension",
+      "category": "triceps",
+      "equipment": "Cable, low or high pulley, rope",
+      "setup": "Rope attached low. Grab the rope, turn away from the machine, bring the rope overhead so your hands are behind your head, elbows pointing forward. Split stance, abs braced, slight forward lean.",
+      "grip": "Neutral grip, thumbs pointing back toward your neck.",
+      "execution": "From a deep stretch with the hands behind the head, extend the elbows until the arms are straight overhead and slightly forward. Spread the rope at the top. Lower slowly back into the stretch.",
+      "cues": [
+        "Elbows stay pointed forward and close together - do not let them flare out",
+        "Get a deep stretch at the bottom, this is where the long head grows",
+        "Brace the abs so the lower back doesn't arch"
+      ],
+      "common_mistakes": [
+        "Elbows flaring out wide",
+        "Arching the lower back",
+        "Short range at the bottom"
+      ],
+      "notes": "The overhead position is the ONLY way to fully load the long head of the triceps, which is the biggest part of the arm. Do not skip these."
+    },
+    "smith_close_grip_press": {
+      "id": "smith_close_grip_press",
+      "name": "Smith Machine Close-Grip Bench Press",
+      "category": "triceps_chest",
+      "equipment": "Smith bar + flat bench",
+      "setup": "Same bench setup as flat pressing, bar path to the LOWER chest / upper stomach.",
+      "grip": "Pronated, hands roughly shoulder width - NOT narrower. Narrower than shoulder width just wrecks the wrists without adding triceps work.",
+      "execution": "Lower with the elbows tucked in close to the ribs, touch the lower chest, press back up to near lockout.",
+      "cues": [
+        "Elbows tucked to ~30 degrees, tight to the sides",
+        "Wrists stacked straight",
+        "Squeeze the triceps at the top"
+      ],
+      "common_mistakes": [
+        "Grip too narrow (wrist pain)",
+        "Elbows flaring",
+        "Bouncing off the chest"
+      ],
+      "notes": "Your heaviest triceps builder. Do it first in the triceps portion when you're fresh."
+    },
+    "cable_kickback": {
+      "id": "cable_kickback",
+      "name": "Single-Arm Cable Triceps Kickback",
+      "category": "triceps",
+      "equipment": "Cable, low pulley, D-handle",
+      "setup": "Pulley set low. Hinge forward at the hips about 45 degrees, upper arm pinned against your side and parallel to the floor. Free hand braced on the bench or your knee.",
+      "grip": "Neutral or pronated on the D-handle.",
+      "execution": "Keeping the upper arm completely still, extend the elbow until the arm is straight behind you. Squeeze for one second. Return slowly.",
+      "cues": [
+        "Upper arm NEVER moves",
+        "Squeeze hard at full extension",
+        "Light weight, 12-20 reps"
+      ],
+      "common_mistakes": [
+        "Swinging the whole arm",
+        "Standing up as you push"
+      ],
+      "notes": "Peak contraction finisher. Cables beat dumbbells here because tension stays constant."
+    },
+    "smith_wrist_curl": {
+      "id": "smith_wrist_curl",
+      "name": "Seated Wrist Curl (Smith Bar)",
+      "category": "forearms",
+      "equipment": "Smith bar + bench",
+      "setup": "Set the Smith bar low. Sit on the bench facing the bar with your forearms resting on your thighs, wrists and hands hanging just off the knees, palms UP.",
+      "grip": "Supinated (palms up), hands about shoulder width, gripping the bar loosely.",
+      "execution": "Let the bar roll down to your fingertips for a full stretch. Curl it back up using the fingers first, then flex the wrist as high as it will go. Squeeze at the top for a second, lower slowly.",
+      "cues": [
+        "Forearms stay flat on the thighs - only the wrists move",
+        "Let the bar roll into the fingers at the bottom, that's the finger-curl portion",
+        "Full squeeze at the top, 2-3 seconds down"
+      ],
+      "common_mistakes": [
+        "Lifting the forearms off the legs",
+        "Tiny range of motion",
+        "Rushing - forearms respond to time under tension"
+      ],
+      "notes": "The single best forearm mass builder available to you. Reps in the 15-25 range."
+    },
+    "smith_reverse_wrist_curl": {
+      "id": "smith_reverse_wrist_curl",
+      "name": "Seated Reverse Wrist Curl (Smith Bar)",
+      "category": "forearms",
+      "equipment": "Smith bar + bench",
+      "setup": "Same seated position as the wrist curl, but palms DOWN, wrists hanging off the knees.",
+      "grip": "Pronated (palms down), shoulder width.",
+      "execution": "Lower the hands as far as they go for a stretch in the top of the forearm, then extend the wrists up as high as possible. Squeeze one second, lower over 3.",
+      "cues": [
+        "Forearms glued to the thighs",
+        "Squeeze hard at the top - the range is small so the squeeze matters",
+        "Use much less weight than the palms-up version, this is normal"
+      ],
+      "common_mistakes": [
+        "Using way too much weight and barely moving",
+        "Lifting the arms off the legs"
+      ],
+      "notes": "Trains the extensors on the top of the forearm. This is what actually makes forearms look wide and full from every angle."
+    },
+    "behind_back_wrist_curl": {
+      "id": "behind_back_wrist_curl",
+      "name": "Behind-the-Back Wrist Curl",
+      "category": "forearms",
+      "equipment": "Smith bar",
+      "setup": "Set the Smith bar at roughly mid-thigh height. Stand with your back to it, grab the bar behind your body with palms facing back, unrack and stand tall.",
+      "grip": "Pronated relative to your body (palms facing away from you, backs of hands against your glutes).",
+      "execution": "Let the bar roll down into the fingers, then curl the wrists up as high as possible behind your back. Squeeze, lower slow.",
+      "cues": [
+        "Stand tall, arms straight down",
+        "Small range - focus on the squeeze",
+        "Slow eccentric"
+      ],
+      "common_mistakes": [
+        "Bending the elbows",
+        "Using the whole body"
+      ],
+      "notes": "The behind-the-back angle gives a deeper stretch on the flexors than the seated version."
+    },
+    "cable_reverse_curl": {
+      "id": "cable_reverse_curl",
+      "name": "Cable Reverse Curl",
+      "category": "forearms",
+      "equipment": "Cable, low pulley, curl bar",
+      "setup": "Low pulley, curl bar. Stand tall, elbows at your sides.",
+      "grip": "Pronated (palms DOWN) on the bar, shoulder width. Grip firmly - the grip challenge is part of the exercise.",
+      "execution": "Curl the bar up keeping the palms down the entire time. Squeeze at the top, lower over 3 seconds to a full stretch.",
+      "cues": [
+        "Wrists stay straight and rigid - don't let them flop",
+        "Elbows pinned to the sides",
+        "Much lighter than a normal curl - expect roughly 60% of your supinated curl weight"
+      ],
+      "common_mistakes": [
+        "Letting the wrists bend backward",
+        "Swinging the body"
+      ],
+      "notes": "Hits the brachioradialis - the big muscle on the thumb side of the forearm that pops when your arm is at your side. Prime target for forearm size."
+    },
+    "cable_pronation": {
+      "id": "cable_pronation",
+      "name": "Cable Wrist Pronation / Supination",
+      "category": "forearms",
+      "equipment": "Cable, low pulley, D-handle",
+      "setup": "Pulley low. Kneel or sit beside the machine with your forearm braced on the bench, elbow at 90 degrees, hand extended past the edge. Hold the handle by ONE end so it hangs unbalanced like a hammer.",
+      "grip": "Grip one end of the D-handle so the load is off-center. Forearm stays flat on the bench.",
+      "execution": "PRONATION: start with the palm up and rotate the hand so the palm turns down against the cable. SUPINATION: start palm down and rotate to palm up. Only the forearm rotates - the elbow and upper arm stay still.",
+      "cues": [
+        "Only the forearm rotates, nothing else moves",
+        "Very light weight, 15-20 reps, slow",
+        "Do both directions"
+      ],
+      "common_mistakes": [
+        "Moving the elbow or shoulder to help",
+        "Going too heavy - this is a small movement"
+      ],
+      "notes": "Direct training for the pronators and supinators. Also the single most transferable forearm exercise for arm wrestling."
+    },
+    "dead_hang": {
+      "id": "dead_hang",
+      "name": "Dead Hang",
+      "category": "forearms_grip",
+      "equipment": "Pull-up bar",
+      "setup": "Hang from the bar with arms straight, shoulders slightly engaged (not totally loose), feet off the ground, body still.",
+      "grip": "Pronated, shoulder width, thumb wrapped around the bar for maximum grip.",
+      "execution": "Just hang. Hold for time. Keep the body from swinging.",
+      "cues": [
+        "Squeeze the bar as hard as you can the whole time",
+        "Keep a little tension in the shoulders rather than hanging completely limp",
+        "Breathe"
+      ],
+      "common_mistakes": [
+        "Swinging",
+        "Letting the shoulders go totally slack"
+      ],
+      "notes": "Simple, brutal grip builder. Also decompresses the spine after pressing."
+    },
+    "towel_hang": {
+      "id": "towel_hang",
+      "name": "Towel Dead Hang",
+      "category": "forearms_grip",
+      "equipment": "Pull-up bar + 2 towels",
+      "setup": "Drape two towels over the bar, one for each hand. Grab the towel ends and hang.",
+      "grip": "Thick neutral grip on the towel.",
+      "execution": "Hang for time. The thick, unstable grip massively increases the demand on the hand and forearm.",
+      "cues": [
+        "Crush the towel",
+        "Keep shoulders engaged"
+      ],
+      "common_mistakes": [
+        "Wrapping the towel around the wrist to cheat"
+      ],
+      "notes": "Progression from the regular dead hang once you can hold 60+ seconds."
+    },
+    "loaded_carry": {
+      "id": "loaded_carry",
+      "name": "Loaded Carry (Farmer Carry)",
+      "category": "forearms_grip",
+      "equipment": "Loaded backpack, D-handles clipped to something, or any heavy object",
+      "setup": "Pick up a heavy load in each hand (or one hand for a suitcase carry). Stand tall, shoulders back and down, abs braced.",
+      "grip": "Crushing grip. Don't let the load slip toward the fingertips.",
+      "execution": "Walk at a steady controlled pace for time or distance. Keep the torso upright and the shoulders from rounding forward.",
+      "cues": [
+        "Chest up, shoulders back the whole way",
+        "Brace the core - this is a core exercise too",
+        "Grip is the limiting factor, that's the point"
+      ],
+      "common_mistakes": [
+        "Shrugging or leaning",
+        "Letting the shoulders round forward"
+      ],
+      "notes": "Since you don't have dumbbells, a backpack loaded with books works fine. One-arm (suitcase) carries also hammer the obliques."
+    },
+    "cable_static_hold": {
+      "id": "cable_static_hold",
+      "name": "Cable Static Hold",
+      "category": "forearms_grip",
+      "equipment": "Cable, low pulleys, two D-handles",
+      "setup": "Set up as if for a shrug, arms hanging straight, holding the bar or handles.",
+      "grip": "Pronated, no thumb wrap if you want extra difficulty (but be safe - use the thumb if the load is heavy).",
+      "execution": "Simply hold the load with straight arms for time, resisting the pull. Stand tall.",
+      "cues": [
+        "Squeeze maximally",
+        "Shoulders back, don't slump"
+      ],
+      "common_mistakes": [
+        "Letting the bar slide down the fingers"
+      ],
+      "notes": "Easy way to add grip work at the end of any pulling day."
+    },
+    "hanging_knee_raise": {
+      "id": "hanging_knee_raise",
+      "name": "Hanging Knee Raise",
+      "category": "core",
+      "equipment": "Pull-up bar",
+      "setup": "Hang from the bar, arms straight, shoulders slightly engaged. Legs together, body still.",
+      "grip": "Pronated, shoulder width.",
+      "execution": "Without swinging, curl the pelvis UP and raise the knees toward your chest, aiming to get the hips above the starting point. Pause. Lower slowly over 3 seconds under full control.",
+      "cues": [
+        "The key is tilting the PELVIS up, not just lifting the legs - that's what makes the abs work instead of the hip flexors",
+        "No swinging - if you swing, stop and reset",
+        "Slow on the way down"
+      ],
+      "common_mistakes": [
+        "Just lifting the knees with the hip flexors and no pelvic tilt",
+        "Using momentum from a body swing",
+        "Dropping the legs fast"
+      ],
+      "notes": "Your current level. Progress: knees to chest -> knees held higher -> straight-leg raises to parallel -> full leg raises."
+    },
+    "hanging_leg_raise": {
+      "id": "hanging_leg_raise",
+      "name": "Hanging Leg Raise",
+      "category": "core",
+      "equipment": "Pull-up bar",
+      "setup": "Same hang as the knee raise, but legs straight.",
+      "grip": "Pronated, shoulder width.",
+      "execution": "With legs straight (soft knees are fine), raise them until they're at least parallel to the floor, curling the pelvis up at the top. Lower slowly.",
+      "cues": [
+        "Point the toes and keep the legs together",
+        "Curl the pelvis at the top for full ab contraction",
+        "Control the descent - no dropping"
+      ],
+      "common_mistakes": [
+        "Swinging like a pendulum",
+        "Bending the knees a lot (that's a knee raise)"
+      ],
+      "notes": "Goal exercise. We'll build to it from knee raises over the first block or two."
+    },
+    "reverse_crunch": {
+      "id": "reverse_crunch",
+      "name": "Reverse Crunch",
+      "category": "core",
+      "equipment": "Floor or bench",
+      "setup": "Lie on your back, hands by your sides or gripping the bench behind your head. Knees bent to 90 degrees, thighs vertical.",
+      "grip": "N/A",
+      "execution": "Curl the pelvis and lift the hips off the floor, bringing the knees toward your face. The movement is small - it comes from the abs rolling the pelvis, not from swinging the legs. Lower slowly.",
+      "cues": [
+        "Small range, big squeeze - lift the HIPS, not just the knees",
+        "Press the lower back into the floor throughout",
+        "3 second lowering"
+      ],
+      "common_mistakes": [
+        "Swinging the legs for momentum",
+        "Just moving the knees back and forth without lifting the hips"
+      ],
+      "notes": "Best move for the lower abs, which is the region that shows up last. You said you'd never tried these - start with 3 sets of 10-12."
+    },
+    "cable_crunch": {
+      "id": "cable_crunch",
+      "name": "Kneeling Cable Crunch",
+      "category": "core",
+      "equipment": "Cable, high pulley, rope",
+      "setup": "Rope on a high pulley. Kneel facing the machine, about two feet back. Hold the rope ends at the sides of your head, elbows down. Hips stay fixed - do not let them travel back.",
+      "grip": "Neutral grip on the rope ends, knuckles near the temples.",
+      "execution": "Crunch DOWN by rounding the spine and driving the elbows toward the thighs. Think about curling the ribcage toward the pelvis. Squeeze hard at the bottom. Return slowly, letting the abs stretch at the top.",
+      "cues": [
+        "Round the spine - this is a flexion exercise, not a hip hinge",
+        "Hips stay in one place the whole time",
+        "Squeeze for a full second at the bottom"
+      ],
+      "common_mistakes": [
+        "Hinging at the hips and turning it into a pulldown",
+        "Pulling with the arms",
+        "No stretch at the top"
+      ],
+      "notes": "The main WEIGHTED ab exercise - and weighted ab training is how you actually build the ab muscles thick enough to show. Progress the load like any other lift."
+    },
+    "plank": {
+      "id": "plank",
+      "name": "Plank",
+      "category": "core",
+      "equipment": "Floor",
+      "setup": "Forearms on the floor under the shoulders, elbows at 90. Feet hip width. Body in one straight line from head to heels.",
+      "grip": "N/A",
+      "execution": "Hold. Squeeze the glutes, brace the abs hard, tuck the pelvis slightly, and press the forearms into the floor.",
+      "cues": [
+        "Actively brace - a plank should be HARD at 30 seconds if you're doing it right",
+        "Squeeze glutes and quads",
+        "Pelvis tucked slightly, ribs down"
+      ],
+      "common_mistakes": [
+        "Sagging hips",
+        "Piking the hips up",
+        "Just hanging out passively for 3 minutes"
+      ],
+      "notes": "You can hold 60+ seconds, which means you're doing them passively. We'll switch you to harder variations instead of longer holds."
+    },
+    "long_lever_plank": {
+      "id": "long_lever_plank",
+      "name": "Long-Lever Plank",
+      "category": "core",
+      "equipment": "Floor",
+      "setup": "Like a plank, but walk the elbows further forward so they're ahead of your shoulders, closer to head height.",
+      "grip": "N/A",
+      "execution": "Hold with maximum bracing. The longer lever makes this dramatically harder than a standard plank.",
+      "cues": [
+        "Pelvis tucked, ribs pulled down",
+        "Squeeze everything",
+        "20-40 seconds is plenty"
+      ],
+      "common_mistakes": [
+        "Letting the lower back arch"
+      ],
+      "notes": "Your plank progression instead of just holding longer."
+    },
+    "side_plank": {
+      "id": "side_plank",
+      "name": "Side Plank",
+      "category": "core",
+      "equipment": "Floor",
+      "setup": "Lie on your side, forearm on the floor under your shoulder, feet stacked or staggered. Lift the hips so the body is a straight line.",
+      "grip": "N/A",
+      "execution": "Hold. Push the bottom shoulder away from the floor, squeeze the glutes, keep the hips high.",
+      "cues": [
+        "Hips stay HIGH - they sink without you noticing",
+        "Don't let the top shoulder roll forward",
+        "Add a hip dip (lower and raise the hips) to make it dynamic"
+      ],
+      "common_mistakes": [
+        "Sagging hips",
+        "Rotating the torso"
+      ],
+      "notes": "Obliques and the deep lateral core."
+    },
+    "pallof_press": {
+      "id": "pallof_press",
+      "name": "Pallof Press",
+      "category": "core",
+      "equipment": "Cable, mid pulley, D-handle",
+      "setup": "Pulley at chest height. Stand side-on to the machine, feet shoulder width, knees soft. Hold the handle with both hands at your sternum. Step away until there's real tension.",
+      "grip": "Both hands stacked on the D-handle at chest level.",
+      "execution": "Press the handle straight out in front of your chest and hold for 2-3 seconds while the cable tries to rotate you. Resist the rotation. Bring it back to your chest and repeat.",
+      "cues": [
+        "Do NOT let your torso rotate - that's the entire exercise",
+        "Squeeze the glutes and brace the abs",
+        "Ribs down, hips square"
+      ],
+      "common_mistakes": [
+        "Rotating toward the machine",
+        "Leaning away to counterbalance",
+        "Rushing the reps"
+      ],
+      "notes": "Anti-rotation training. Builds the deep core strength that makes everything else more stable - and it's what actually makes a core STRONG, not just visible."
+    },
+    "cable_woodchop": {
+      "id": "cable_woodchop",
+      "name": "Cable Woodchop (High to Low)",
+      "category": "core",
+      "equipment": "Cable, high pulley, D-handle or rope",
+      "setup": "Pulley set high. Stand side-on, feet a bit wider than shoulders. Both hands on the handle, arms extended up toward the pulley.",
+      "grip": "Both hands stacked on the handle.",
+      "execution": "Pull the handle down and across your body toward the opposite hip, rotating through the torso while the hips stay relatively stable. Control it back up. Do all reps one side, then switch.",
+      "cues": [
+        "Rotation comes from the torso, not the arms",
+        "Keep the arms relatively straight",
+        "Control the return - don't let it yank you back"
+      ],
+      "common_mistakes": [
+        "Pulling with the arms only",
+        "Spinning the hips instead of rotating the torso"
+      ],
+      "notes": ""
+    },
+    "dead_bug": {
+      "id": "dead_bug",
+      "name": "Dead Bug",
+      "category": "core",
+      "equipment": "Floor",
+      "setup": "Lie on your back. Arms straight up toward the ceiling, hips and knees bent to 90 degrees. Press the lower back FLAT into the floor.",
+      "grip": "N/A",
+      "execution": "Slowly extend the opposite arm and leg away from you, keeping the lower back pressed flat. Return and switch sides. That's one rep.",
+      "cues": [
+        "Lower back stays glued to the floor - if it lifts, shorten the range",
+        "Move slowly, exhale as you extend",
+        "Don't hold your breath"
+      ],
+      "common_mistakes": [
+        "Lower back arching off the floor",
+        "Going too fast"
+      ],
+      "notes": "Teaches the core bracing that protects your back during pressing and rowing."
+    },
+    "hollow_hold": {
+      "id": "hollow_hold",
+      "name": "Hollow Body Hold",
+      "category": "core",
+      "equipment": "Floor",
+      "setup": "Lie on your back, press the lower back into the floor, then lift the shoulder blades and legs off the ground so the body forms a shallow banana shape. Arms overhead or by your sides.",
+      "grip": "N/A",
+      "execution": "Hold the position, keeping the lower back pressed down. Lower the arms and legs closer to the floor to make it harder, tuck them in to make it easier.",
+      "cues": [
+        "Lower back must stay in contact with the floor",
+        "Chin slightly tucked",
+        "Breathe shallow but keep breathing"
+      ],
+      "common_mistakes": [
+        "Lower back arching up",
+        "Straining the neck"
+      ],
+      "notes": ""
+    },
+    "bicycle_crunch": {
+      "id": "bicycle_crunch",
+      "name": "Bicycle Crunch",
+      "category": "core",
+      "equipment": "Floor",
+      "setup": "Lie on your back, hands lightly behind your head (don't pull on your neck), shoulder blades off the floor, legs up at 90 degrees.",
+      "grip": "N/A",
+      "execution": "Slowly bring one elbow toward the OPPOSITE knee while extending the other leg. Alternate with control.",
+      "cues": [
+        "Rotate through the torso, not just the elbow",
+        "Slow and deliberate - 2 seconds per rep",
+        "Never yank on the neck"
+      ],
+      "common_mistakes": [
+        "Going fast and flapping the elbows",
+        "Pulling the head forward with the hands"
+      ],
+      "notes": ""
+    },
+    "suitcase_carry": {
+      "id": "suitcase_carry",
+      "name": "Suitcase Carry",
+      "category": "core_forearms",
+      "equipment": "Loaded backpack or heavy object, one hand",
+      "setup": "Hold a heavy load in ONE hand at your side. Stand tall.",
+      "grip": "Crush grip, arm straight down.",
+      "execution": "Walk while resisting the sideways lean. Keep the shoulders level and the torso completely upright. Switch hands and repeat.",
+      "cues": [
+        "Do not lean away from the weight",
+        "Shoulders level, ribs down",
+        "Brace the obliques on the unloaded side"
+      ],
+      "common_mistakes": [
+        "Leaning to counterbalance",
+        "Letting the shoulder hike up"
+      ],
+      "notes": "Obliques and grip at the same time. Very efficient."
+    },
+    "treadmill_z2": {
+      "id": "treadmill_z2",
+      "name": "Treadmill Zone 2 Walk/Jog",
+      "category": "cardio",
+      "equipment": "Treadmill",
+      "setup": "Set an incline of 3-6% and a pace where you're breathing noticeably harder but could still hold a conversation.",
+      "grip": "N/A",
+      "execution": "Steady state for the prescribed duration.",
+      "cues": [
+        "Conversational pace - if you're gasping, slow down",
+        "Incline walking is easier on the joints than running and burns similar calories"
+      ],
+      "common_mistakes": [
+        "Holding onto the handrails, which cuts the work substantially"
+      ],
+      "notes": "Low impact, doesn't interfere with muscle growth or recovery."
+    },
+    "treadmill_intervals": {
+      "id": "treadmill_intervals",
+      "name": "Treadmill Intervals",
+      "category": "cardio",
+      "equipment": "Treadmill",
+      "setup": "Warm up 3 minutes easy. Then alternate hard efforts with easy recovery.",
+      "grip": "N/A",
+      "execution": "30-60 seconds fast, 90 seconds easy walk. Repeat for the prescribed number of rounds. Cool down 2-3 minutes.",
+      "cues": [
+        "The hard interval should be genuinely hard - 8/10 effort",
+        "Full recovery walk between - don't rush the next one"
+      ],
+      "common_mistakes": [
+        "Making the 'easy' portion too hard so the hard portion suffers"
+      ],
+      "notes": "Keep to 1-2 sessions per week max so it doesn't eat into your lifting recovery."
+    },
+    "cable_lateral_raise_lean": {
+      "id": "cable_lateral_raise_lean",
+      "name": "Leaning-Away Cable Lateral Raise",
+      "category": "shoulders",
+      "equipment": "Cable, low pulley, D-handle",
+      "setup": "Pulley at the lowest setting. Grab the frame with your inside hand and lean your whole body AWAY from the machine so your working arm hangs across the front of your body, cable pulling it inward. The lean is the whole point - it puts the side delt under tension at the very bottom of the rep, where a standing raise has none.",
+      "grip": "Neutral on the D-handle, slight fixed bend in the elbow.",
+      "execution": "From the fully stretched bottom position (arm across the body), raise out to the side up to shoulder height, leading with the elbow. Pause one second, lower over 3 seconds fighting the cable back into the stretch.",
+      "cues": [
+        "The lean creates tension at the bottom - don't stand it up straight",
+        "Lead with the elbow, pinky slightly high at the top",
+        "Shoulder stays down, away from the ear",
+        "Even lighter than the standing version - the stretched position is harder"
+      ],
+      "common_mistakes": [
+        "Standing too upright and losing the bottom-range tension",
+        "Swinging the torso to start the rep",
+        "Going above shoulder height into the traps"
+      ],
+      "notes": "This is the Push B lateral raise. It hits the side delt in the STRETCHED position, complementing the standing single-arm raise on Push A which loads the top/mid-range. Two angles across the week, delts trained twice - that's the point of running different variations on the two push days."
+    }
+  },
+  "checkin": {
+    "id": "checkin_message",
+    "frequency": "Every 2 weeks, on the Sunday at the end of even-numbered weeks",
+    "instructions": "Your tracking app fills in every {{blank}}. Paste the completed message into the chat. Anything you don't have a number for, write 'n/a' - don't skip the line.",
+    "template": "=== 2-WEEK CHECK-IN ===\nWeeks covered: {{week_start}}-{{week_end}}   |   Block: {{block_name}}\n\nBODY\nBodyweight: {{bodyweight_lbs}} lbs\nSleep average: {{sleep_hours}} hrs/night\nWaist at navel (optional): {{waist_in}} in\nVisible ab definition (none / faint top 2 / top 4 / more): {{ab_status}}\nAny pain, tweaks, or joints complaining: {{pain_notes}}\n\nADHERENCE\nSessions completed: {{sessions_done}} / {{sessions_planned}}\nForearm finishers completed: {{forearm_done}} / {{forearm_planned}}\nCore finishers completed: {{core_done}} / {{core_planned}}\nCardio sessions: {{cardio_sessions}}\n\nBEST WORKING SET PER LIFT (heaviest set at target RIR, over these 2 weeks)\nSmith flat press:      {{flat_press_lbs}} lbs x {{flat_press_reps}} @ RIR {{flat_press_rir}}\nSmith incline press:   {{incline_press_lbs}} lbs x {{incline_press_reps}} @ RIR {{incline_press_rir}}\nSmith OHP:             {{ohp_lbs}} lbs x {{ohp_reps}} @ RIR {{ohp_rir}}\nSmith close-grip press:{{cgbp_lbs}} lbs x {{cgbp_reps}} @ RIR {{cgbp_rir}}\nSmith bent row:        {{row_lbs}} lbs x {{row_reps}} @ RIR {{row_rir}}\nLat pulldown (wide):   {{pulldown_lbs}} lbs x {{pulldown_reps}} @ RIR {{pulldown_rir}}\nSeated cable row:      {{cable_row_lbs}} lbs x {{cable_row_reps}} @ RIR {{cable_row_rir}}\nPull-ups:              {{pullup_reps}} max unbroken clean reps\nCable lateral raise:   {{lat_raise_lbs}} lbs x {{lat_raise_reps}}\nDual cable curl:       {{curl_lbs}} lbs PER HAND x {{curl_reps}}\nRope pushdown:         {{pushdown_lbs}} lbs x {{pushdown_reps}}\nCable crunch:          {{cable_crunch_lbs}} lbs x {{cable_crunch_reps}}\n\nFOREARMS\nSeated wrist curl:     {{wrist_curl_lbs}} lbs x {{wrist_curl_reps}}\nReverse wrist curl:    {{rev_wrist_curl_lbs}} lbs x {{rev_wrist_curl_reps}}\nCable reverse curl:    {{rev_curl_lbs}} lbs x {{rev_curl_reps}}\nDead hang max:         {{dead_hang_sec}} seconds\nForearm measurement at widest point (optional): {{forearm_in}} in\n\nCORE\nHanging knee/leg raise best set: {{leg_raise_reps}} reps ({{leg_raise_variation}})\nLong-lever plank max hold: {{plank_sec}} seconds\n\nSUBJECTIVE\nWhich exercises felt best / most productive: {{best_exercises}}\nWhich felt useless, awkward, or painful: {{worst_exercises}}\nEnergy and motivation (1-10): {{energy_rating}}\nAnything else / questions for Claude: {{free_notes}}\n=== END CHECK-IN ==="
+  },
+  "schedule": [
+    {
+      "week": 1,
+      "block": "block_1",
+      "days_per_week": 5,
+      "session_template": "block1",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": 3
+        },
+        {
+          "weekday": "Thursday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": 5
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 2,
+      "block": "block_1",
+      "days_per_week": 5,
+      "session_template": "block1",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": 3
+        },
+        {
+          "weekday": "Thursday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": 5
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 3,
+      "block": "block_1",
+      "days_per_week": 5,
+      "session_template": "block1",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": 3
+        },
+        {
+          "weekday": "Thursday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": 5
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 4,
+      "block": "block_1",
+      "days_per_week": 5,
+      "session_template": "block1",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": 3
+        },
+        {
+          "weekday": "Thursday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": 5
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 5,
+      "block": "block_2",
+      "days_per_week": 4,
+      "session_template": "block2",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 6,
+      "block": "block_2",
+      "days_per_week": 4,
+      "session_template": "block2",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 7,
+      "block": "block_2",
+      "days_per_week": 4,
+      "session_template": "block2",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 8,
+      "block": "block_2",
+      "days_per_week": 4,
+      "session_template": "block2",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 9,
+      "block": "block_2",
+      "days_per_week": 4,
+      "session_template": "block2",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 10,
+      "block": "block_2",
+      "days_per_week": 4,
+      "session_template": "block2",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 11,
+      "block": "block_2",
+      "days_per_week": 4,
+      "session_template": "block2",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 12,
+      "block": "block_2",
+      "days_per_week": 4,
+      "session_template": "block2",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": true,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 13,
+      "block": "block_3",
+      "days_per_week": 4,
+      "session_template": "block3",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 14,
+      "block": "block_3",
+      "days_per_week": 4,
+      "session_template": "block3",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 15,
+      "block": "block_3",
+      "days_per_week": 4,
+      "session_template": "block3",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 16,
+      "block": "block_3",
+      "days_per_week": 4,
+      "session_template": "block3",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 17,
+      "block": "block_3",
+      "days_per_week": 4,
+      "session_template": "block3",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 18,
+      "block": "block_3",
+      "days_per_week": 4,
+      "session_template": "block3",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 19,
+      "block": "block_3",
+      "days_per_week": 4,
+      "session_template": "block3",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 20,
+      "block": "block_3",
+      "days_per_week": 4,
+      "session_template": "block3",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": true,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 21,
+      "block": "block_4",
+      "days_per_week": 4,
+      "session_template": "block4",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 22,
+      "block": "block_4",
+      "days_per_week": 4,
+      "session_template": "block4",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 23,
+      "block": "block_4",
+      "days_per_week": 4,
+      "session_template": "block4",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 24,
+      "block": "block_4",
+      "days_per_week": 4,
+      "session_template": "block4",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 25,
+      "block": "block_4",
+      "days_per_week": 4,
+      "session_template": "block4",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 26,
+      "block": "block_4",
+      "days_per_week": 4,
+      "session_template": "block4",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 27,
+      "block": "block_4",
+      "days_per_week": 4,
+      "session_template": "block4",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 28,
+      "block": "block_4",
+      "days_per_week": 4,
+      "session_template": "block4",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": true,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 29,
+      "block": "block_5",
+      "days_per_week": 4,
+      "session_template": "block5",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 30,
+      "block": "block_5",
+      "days_per_week": 4,
+      "session_template": "block5",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 31,
+      "block": "block_5",
+      "days_per_week": 4,
+      "session_template": "block5",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 32,
+      "block": "block_5",
+      "days_per_week": 4,
+      "session_template": "block5",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    },
+    {
+      "week": 33,
+      "block": "block_5",
+      "days_per_week": 4,
+      "session_template": "block5",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": false,
+      "is_checkin_week": false
+    },
+    {
+      "week": 34,
+      "block": "block_5",
+      "days_per_week": 4,
+      "session_template": "block5",
+      "days": [
+        {
+          "weekday": "Monday",
+          "session": 1
+        },
+        {
+          "weekday": "Tuesday",
+          "session": 2
+        },
+        {
+          "weekday": "Wednesday",
+          "session": null,
+          "type": "rest"
+        },
+        {
+          "weekday": "Thursday",
+          "session": 3
+        },
+        {
+          "weekday": "Friday",
+          "session": 4
+        },
+        {
+          "weekday": "Saturday",
+          "session": null,
+          "type": "rest_or_optional_cardio"
+        },
+        {
+          "weekday": "Sunday",
+          "session": null,
+          "type": "rest"
+        }
+      ],
+      "is_deload": true,
+      "is_checkin_week": true,
+      "checkin_day": {
+        "weekday": "Sunday",
+        "type": "CHECK-IN (no training)",
+        "action": "Export the fill-in-the-blank check-in message from your tracking app and send it to Claude. Nothing else to do today.",
+        "template_id": "checkin_message"
+      }
+    }
+  ]
+}
