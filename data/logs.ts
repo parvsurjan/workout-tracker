@@ -4,7 +4,7 @@
 // The check-in screen scans these to auto-fill the 2-week template.
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { SetLog, resolvedDays } from './workoutPlan';
+import { ResolvedDay, SetLog, resolvedDays } from './workoutPlan';
 
 export type { SetLog };
 
@@ -84,4 +84,39 @@ export async function getLogsForWeeks(
     });
   } catch {}
   return grouped;
+}
+
+export type PreviousLog = SetLog & { week: number };
+
+/**
+ * For each exercise, the most recent earlier log with any data. Deload weeks are
+ * skipped as a source (their loads are intentionally light), so the week after a
+ * deload — and the deload itself — reference the last regular training week.
+ */
+export async function getPreviousLogs(
+  day: ResolvedDay,
+  exerciseIds: string[],
+): Promise<Record<string, PreviousLog>> {
+  const result: Record<string, PreviousLog> = {};
+  const earlier = resolvedDays
+    .filter((d) => d.kind === 'training' && !d.isDeload && d.globalIndex < day.globalIndex)
+    .reverse();
+  if (earlier.length === 0 || exerciseIds.length === 0) return result;
+
+  const pairs = earlier.flatMap((d) =>
+    exerciseIds.map((id) => ({ d, id, key: logKey(d.globalIndex, id) })),
+  );
+  try {
+    const entries = await AsyncStorage.multiGet(pairs.map((p) => p.key));
+    // `earlier` is newest-first, so the first hit per exercise wins.
+    entries.forEach(([, raw], i) => {
+      const { d, id } = pairs[i];
+      if (!raw || result[id]) return;
+      try {
+        const log = JSON.parse(raw) as SetLog;
+        if (log.weightLbs || log.reps || log.rir) result[id] = { ...log, week: d.week };
+      } catch {}
+    });
+  } catch {}
+  return result;
 }

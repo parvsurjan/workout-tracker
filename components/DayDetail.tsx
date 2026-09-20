@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { View, Text, StyleSheet, Pressable, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ResolvedDay, ResolvedExercise, ResolvedFinisher, SetLog } from '../data/workoutPlan';
-import { getDayLogs, setLog } from '../data/logs';
+import { getDayLogs, getPreviousLogs, setLog, PreviousLog } from '../data/logs';
 import { ExerciseFormSheet, FormDetail } from './ExerciseFormSheet';
 import { theme } from '../theme';
 
@@ -29,6 +29,7 @@ function allExercises(day: ResolvedDay): ResolvedExercise[] {
 export function DayDetail({ day }: { day: ResolvedDay }) {
   const blockColor = theme.blockColors[day.block.id] ?? theme.kindColors.training;
   const [logs, setLogs] = useState<Record<string, SetLog>>({});
+  const [previous, setPrevious] = useState<Record<string, PreviousLog>>({});
   const [formDetail, setFormDetail] = useState<FormDetail | null>(null);
 
   // Load saved logs and seed each row's defaults (prescribed weight) once per day.
@@ -49,6 +50,16 @@ export function DayDetail({ day }: { day: ResolvedDay }) {
       }
       setLogs(seeded);
     })();
+    return () => {
+      cancelled = true;
+    };
+  }, [day.globalIndex]);
+
+  useEffect(() => {
+    let cancelled = false;
+    getPreviousLogs(day, allExercises(day).map((e) => e.id)).then((p) => {
+      if (!cancelled) setPrevious(p);
+    });
     return () => {
       cancelled = true;
     };
@@ -108,6 +119,7 @@ export function DayDetail({ day }: { day: ResolvedDay }) {
             ex={ex}
             showRir
             log={logs[ex.id]}
+            prev={previous[ex.id]}
             onChangeLog={(patch) => updateLog(ex.id, patch)}
             onOpenForm={() => openForm(ex)}
           />
@@ -134,6 +146,7 @@ export function DayDetail({ day }: { day: ResolvedDay }) {
         tint={theme.forearmBg}
         accent={theme.forearmAccent}
         logs={logs}
+        previous={previous}
         onChangeLog={updateLog}
         onOpenForm={openForm}
       />
@@ -142,6 +155,7 @@ export function DayDetail({ day }: { day: ResolvedDay }) {
         tint={theme.coreBg}
         accent={theme.coreAccent}
         logs={logs}
+        previous={previous}
         onChangeLog={updateLog}
         onOpenForm={openForm}
       />
@@ -156,6 +170,7 @@ function FinisherSection({
   tint,
   accent,
   logs,
+  previous,
   onChangeLog,
   onOpenForm,
 }: {
@@ -163,6 +178,7 @@ function FinisherSection({
   tint: string;
   accent: string;
   logs: Record<string, SetLog>;
+  previous: Record<string, PreviousLog>;
   onChangeLog: (id: string, patch: Partial<SetLog>) => void;
   onOpenForm: (ex: ResolvedExercise) => void;
 }) {
@@ -175,6 +191,7 @@ function FinisherSection({
           ex={ex}
           accent={accent}
           log={logs[ex.id]}
+          prev={previous[ex.id]}
           onChangeLog={(patch) => onChangeLog(ex.id, patch)}
           onOpenForm={() => onOpenForm(ex)}
         />
@@ -207,6 +224,7 @@ function ExerciseRow({
   accent,
   showRir,
   log,
+  prev,
   onChangeLog,
   onOpenForm,
 }: {
@@ -214,6 +232,7 @@ function ExerciseRow({
   accent?: string;
   showRir?: boolean;
   log?: SetLog;
+  prev?: PreviousLog;
   onChangeLog: (patch: Partial<SetLog>) => void;
   onOpenForm: () => void;
 }) {
@@ -237,6 +256,12 @@ function ExerciseRow({
             <Text style={styles.exerciseSets}>{prescribed(ex)}</Text>
           </View>
           {!!ex.note && <Text style={styles.tipText}>{ex.note}</Text>}
+          {prev && (
+            <Text style={styles.prevText}>
+              Last (wk {prev.week}): {prev.weightLbs || '—'} lb × {prev.reps || '—'}
+              {showRir ? ` @ RIR ${prev.rir || '—'}` : ''}
+            </Text>
+          )}
         </Pressable>
         <View
           style={[
@@ -354,6 +379,7 @@ const styles = StyleSheet.create({
   exerciseSource: { color: theme.textMuted, fontSize: 12 },
   exerciseSets: { color: theme.textDim, fontSize: 12, fontWeight: '500' },
   tipText: { color: theme.textMuted, fontSize: 12, marginTop: 6, lineHeight: 17 },
+  prevText: { color: theme.textMuted, fontSize: 12, fontWeight: '600', marginTop: 6 },
   weightPill: {
     backgroundColor: theme.weightPillBg,
     borderRadius: 999,
