@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "8-Month Upper Body Hypertrophy Program",
-    "version": "1.4",
+    "version": "2.1",
     "created": "2026-07-23",
     "duration_weeks": 34,
     "athlete": {
@@ -28,14 +28,21 @@
       "Treadmill",
       "No dumbbells, no dip bars, no resistance bands"
     ],
-    "structure_summary": "Weeks 1-4 run 5 days/week to build a base. Weeks 5-34 run 4 days/week (school cardio covers conditioning) on a Push/Pull/Push/Pull split that hits every upper-body muscle twice per week. Forearm finishers land on 2 days per week, core finishers on 3, deloads every 8 weeks, and a check-in every 2 weeks.",
+    "structure_summary": "All 34 weeks run 4 days/week on a Push/Pull/Push/Pull split that hits every upper-body muscle twice a week. Main workouts are 5 exercises (week 1 Days 1-3 keep the original 6, since they were already in progress); forearm and core finishers are on top of that. Block 1 (weeks 1-4) is calibration at conservative RIR with explicit starting loads and no cardio. Blocks 2-5 keep the anchor compounds fixed and rotate isolation slots between blocks. Forearm finishers land on 2 days/week, core finishers on all 4, deloads every 8 weeks, and a check-in every 2 weeks.",
     "how_to_use": "Load this JSON into your tracking app. Each week in 'schedule' points to a session template in 'session_templates' by day number. Each session lists exercise_ids that resolve against 'exercise_library' for full form instructions, plus a forearm_finisher and core_finisher that resolve against 'finishers'. Log weight, reps, and RIR for every set.",
     "changelog": [
       "1.1 - Cable curl corrected to single-arm (one arm at a time). Loads confirmed per arm, start load set to 22.5 lbs, rest extended to 75s taken after the second arm.",
       "1.2 - Removed straight-bar triceps pushdown (no straight bar attachment). Straight bar removed as an option from straight-arm pulldown, seated cable row, cable shrug and cable static hold; all now specify rope or D-handles.",
       "1.3 - Lat pulldown rewritten for the curl bar (no lat bar available); 75 lb working load carries over. Rope pushdown substituted into Block 1 Day 4 in place of the removed straight-bar pushdown.",
       "1.3 - Wide-grip lat pulldown reassigned to the dual-hook curl bar (outer straight sections). Block 1 Day 4 straight-bar pushdown slot filled with overhead rope triceps extension, 3x12-15 @ 30 lbs.",
-      "1.4 - Added between-block isolation rotation (chest fly, one triceps slot, one chest-press slot, primary biceps slot) across Blocks 2-5, keeping all anchor compounds fixed. Low-to-high fly and feet-elevated push-up brought into rotation. Push B lateral raise changed to the new leaning-away variation to reduce within-week overlap and add a second delt angle. Schedule and blocks now reference per-block templates block2..block5; block2plus removed."
+      "1.4 - Added between-block isolation rotation (chest fly, one triceps slot, one chest-press slot, primary biceps slot) across Blocks 2-5, keeping all anchor compounds fixed. Low-to-high fly and feet-elevated push-up brought into rotation. Push B lateral raise changed to the new leaning-away variation to reduce within-week overlap and add a second delt angle. Schedule and blocks now reference per-block templates block2..block5; block2plus removed.",
+      "1.5 - Block 1 converted from 5 days to a 4-day Push/Pull/Push/Pull split matching Blocks 2-5 (calibration loads retained, starting loads added for bent row/shrug/leaning lateral raise). All cardio removed (was Block 1 D3/D5 only). Schedule weeks 1-4 rebuilt to the 4-day pattern; block_1 now days_per_week=4. Treadmill exercises left in the library as unused reserves.",
+      "1.6 - Main workouts trimmed from 6 to 5 exercises, effective week 1 Day 4 onward. Week 1 Days 1-3 preserved at 6 via a new 'block1_wk1' template (already-in-progress week). Cuts: Push A drops the rotating triceps slot (keeps overhead extension / long head), Pull A drops straight-arm pulldown, Push B drops bench dip, Pull B drops shrug. NOTE: this removes the triceps rope-pushdown/kickback between-block rotation; the chest-fly, chest-press and biceps rotations are unaffected. rope_pushdown and cable_kickback are now unused reserves.",
+      "1.7 - Added one set to every lateral raise (standing and leaning) across all templates to lift side-delt weekly volume from ~7 to ~10 direct sets, supporting the capped-delt goal. Low-fatigue, minimal added time.",
+      "1.8 - Week-2 check-in processed. Recalibrated Block 1 loads to real working weights: flat 160, incline 130, OHP 120, close-grip 130, bent row 110, wide pulldown 80, cable row 70, single-arm curl 25/arm. Standing lateral raise set to 12.5 to hold the 12-15 rep target (reported 15x8 was too heavy). Wrist curl 30->50; dead hang graduates to towel hangs.",
+      "1.9 - Fixed calibration so lifts that already topped their rep range at RIR 2 show the NEXT working weight, not the achieved one (flat 165, incline 135, OHP 130, bent row 115, wide pulldown 85, single-arm curl 27.5/arm). Lifts still mid-range (close-grip, cable row, wrist curl) keep the weight with an explicit 'add reps first' note.",
+      "2.0 - Per request, set +10 increments from achieved weights on flat press (170), incline (140), wide pulldown (90) and bent row (120). OHP (130) and single-arm curl (27.5) unchanged.",
+      "2.1 - Single-arm cable curl bumped to 30/arm per request (from 27.5)."
     ],
     "rotation": {
       "principle": "Anchor compounds stay fixed the whole program so they remain progression measuring sticks. Isolation slots rotate BETWEEN blocks (never within a block) so every angle gets covered over 8 months while progressive overload is preserved inside each block.",
@@ -58,6 +65,16 @@
         "Pull A \u00b7 biceps": "single-arm cable curl (B2) \u2192 high cable curl (B3) \u2192 single-arm cable curl (B4) \u2192 high cable curl (B5)"
       },
       "within_week_variety": "Each muscle is trained on two different days with different exercises (Push A/B, Pull A/B). Side delts now use the standing single-arm raise on Push A and the leaning-away raise on Push B \u2014 two angles, same 2x/week frequency."
+    },
+    "last_checkin": {
+      "weeks": "1-2",
+      "block": "block_1",
+      "date_processed": "2026-07-23",
+      "summary": "All lifts progressed past starting estimates. OHP (120 vs est. 105), bent row (110 vs 95) and wrist curl (50 vs 30) were the biggest upward corrections. No pain, no stalls. Bodyweight and sleep not reported - requested for next check-in.",
+      "open_data_gaps": [
+        "bodyweight (key for the muscle-gain goal)",
+        "sleep average"
+      ]
     }
   },
   "warmup_protocol": {
@@ -135,12 +152,12 @@
       "id": "block_1",
       "name": "Block 1 - Foundation & Calibration",
       "weeks": "1-4",
-      "days_per_week": 5,
-      "goal": "Nail technique on every movement, establish accurate working weights, and introduce the forearm and core work you skipped in your last program. This block builds the base everything else stands on.",
+      "days_per_week": 4,
+      "goal": "Nail technique on every movement, establish accurate working weights, and introduce the forearm and core work you skipped in your last program. Same 4-day Push/Pull/Push/Pull split you'll run all program - just at conservative intensity with explicit starting loads. No cardio (you're getting that at school).",
       "intensity": "RIR 2-3 early in each session, RIR 1-2 on the final exercise. Do not train to failure on the big compounds yet.",
       "session_template": "block1",
       "weekly_notes": {
-        "1": "CALIBRATION WEEK. Deliberately leave 2-3 reps in the tank on everything. The listed starting weights are estimates - your job is to find the real numbers and log them.",
+        "1": "CALIBRATION WEEK. Deliberately leave 2-3 reps in the tank on everything. The listed starting weights are estimates - your job is to find the real numbers and log them. New movements this week (bent row, shrug, leaning lateral raise) - go light and prioritize form.",
         "2": "Add load where week 1 felt easy. First check-in at the end of this week.",
         "3": "Push toward the top of each rep range. Add 5-10 lbs on compounds where you hit the top of the range last week.",
         "4": "Highest volume of the block. Take the last set of the last exercise each session to 0-1 RIR. Second check-in at the end of this week."
@@ -244,8 +261,8 @@
     "block1": [
       {
         "day": 1,
-        "name": "Chest & Triceps",
-        "target_min": 38,
+        "name": "Push A - Chest Emphasis (Calibration)",
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_flat_press",
@@ -253,8 +270,8 @@
             "reps": "8-10",
             "rir": "2-3",
             "rest_sec": 120,
-            "note": "Anchor lift. Week 1 is calibration - find a weight where rep 10 is genuinely hard but clean.",
-            "start_load_lbs": 155
+            "note": "+10 jump from your 160x10. Expect ~7-8 reps at first - work back up to 10, then jump again.",
+            "start_load_lbs": 170
           },
           {
             "exercise_id": "smith_incline_press",
@@ -262,8 +279,8 @@
             "reps": "8-12",
             "rir": "2",
             "rest_sec": 105,
-            "note": "Start lighter than you think. Full range beats big numbers.",
-            "start_load_lbs": 125
+            "note": "+10 from 130x12. You'll land lower in the 8-12 range at first; rebuild toward 12.",
+            "start_load_lbs": 140
           },
           {
             "exercise_id": "cable_fly_high_low",
@@ -271,17 +288,17 @@
             "reps": "12-15",
             "rir": "1-2",
             "rest_sec": 60,
-            "note": "Per side. Squeeze one full second.",
+            "note": "Per side. Fixed soft elbow, squeeze one second at the bottom.",
             "start_load_lbs": 15
           },
           {
-            "exercise_id": "rope_pushdown",
-            "sets": 3,
-            "reps": "10-12",
+            "exercise_id": "cable_lateral_raise",
+            "sets": 5,
+            "reps": "12-15",
             "rir": "1-2",
             "rest_sec": 60,
-            "note": "",
-            "start_load_lbs": 40
+            "note": "Per arm. You hit 15x8, but that's heavier than the 12-15 target - drop to ~12.5 and earn 12-15 clean reps. Side delts grow from controlled volume, not load.",
+            "start_load_lbs": 12.5
           },
           {
             "exercise_id": "overhead_rope_extension",
@@ -299,8 +316,8 @@
       },
       {
         "day": 2,
-        "name": "Back & Biceps",
-        "target_min": 38,
+        "name": "Pull A - Back Width & Biceps (Calibration)",
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "pullup",
@@ -308,7 +325,7 @@
             "reps": "max clean reps (target 6-10)",
             "rir": "0-1",
             "rest_sec": 120,
-            "note": "If you can't hit 6, do 5-second negatives instead: 4 sets of 4."
+            "note": "Under 6? Use 5-second negatives instead: 4 sets of 4."
           },
           {
             "exercise_id": "lat_pulldown_wide",
@@ -316,8 +333,8 @@
             "reps": "8-12",
             "rir": "1-2",
             "rest_sec": 90,
-            "note": "Elbows down and back. Full stretch at the top.",
-            "start_load_lbs": 75
+            "note": "+10 from 80x12. Expect fewer reps at first, work back toward the top of the range.",
+            "start_load_lbs": 90
           },
           {
             "exercise_id": "seated_cable_row",
@@ -325,17 +342,8 @@
             "reps": "10-12",
             "rir": "1-2",
             "rest_sec": 90,
-            "note": "Torso stays vertical.",
-            "start_load_lbs": 67.5
-          },
-          {
-            "exercise_id": "straight_arm_pulldown",
-            "sets": 2,
-            "reps": "12-15",
-            "rir": "1-2",
-            "rest_sec": 60,
-            "note": "Pure lat isolation.",
-            "start_load_lbs": 30
+            "note": "70x10 is the bottom of the 10-12 range - chase reps to 12, then add weight.",
+            "start_load_lbs": 70
           },
           {
             "exercise_id": "cable_curl",
@@ -343,27 +351,27 @@
             "reps": "10-12",
             "rir": "1-2",
             "rest_sec": 75,
-            "note": "PER ARM, one arm at a time - all reps on one side, then the other. Down from your 32.5: controlled reps, no swing, no torso rotation. Rest only after the second arm.",
-            "start_load_lbs": 22.5
+            "note": "30/arm, one arm at a time. Jump from 25x12 - expect fewer reps, rebuild toward 12. No swing or torso rotation.",
+            "start_load_lbs": 30
           },
           {
-            "exercise_id": "cable_hammer_curl_rope",
+            "exercise_id": "incline_cable_curl",
             "sets": 2,
             "reps": "12-15",
             "rir": "1-2",
             "rest_sec": 60,
-            "note": "",
-            "start_load_lbs": 25
+            "note": "Per arm. Let the arm hang behind you - the stretched bottom is the point.",
+            "start_load_lbs": 15
           }
         ],
-        "forearm_finisher": "forearm_B",
+        "forearm_finisher": null,
         "core_finisher": "core_B",
         "cardio": null
       },
       {
         "day": 3,
-        "name": "Shoulders & Conditioning",
-        "target_min": 35,
+        "name": "Push B - Shoulder Emphasis (Calibration)",
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_ohp_seated",
@@ -371,17 +379,26 @@
             "reps": "8-10",
             "rir": "2",
             "rest_sec": 120,
-            "note": "Re-anchor this. If 105 flies up for 10 clean reps, add 10-15 lbs next session.",
-            "start_load_lbs": 105
+            "note": "120x10 at RIR 2 topped the range. Next working weight is 130 - expect fewer reps at first, that's the point.",
+            "start_load_lbs": 130
           },
           {
-            "exercise_id": "cable_lateral_raise",
+            "exercise_id": "cable_chest_press",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": "Per side. Split stance, converge the hands at the front.",
+            "start_load_lbs": 30
+          },
+          {
+            "exercise_id": "cable_lateral_raise_lean",
             "sets": 4,
             "reps": "12-15",
             "rir": "1-2",
             "rest_sec": 60,
-            "note": "Per arm. Go light and strict - this is the width builder.",
-            "start_load_lbs": 10
+            "note": "Per arm. Leaning-away angle loads the stretched bottom - start even lighter than the standing raise.",
+            "start_load_lbs": 7.5
           },
           {
             "exercise_id": "cable_rear_delt_fly",
@@ -389,8 +406,54 @@
             "reps": "12-15",
             "rir": "1-2",
             "rest_sec": 60,
-            "note": "",
+            "note": "Pull the hands apart, don't row.",
             "start_load_lbs": 15
+          },
+          {
+            "exercise_id": "smith_close_grip_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "2",
+            "rest_sec": 90,
+            "note": "You hit 130x10, but the range runs to 12 - add reps to 12 before adding weight.",
+            "start_load_lbs": 130
+          }
+        ],
+        "forearm_finisher": "forearm_B",
+        "core_finisher": "core_C",
+        "cardio": null
+      },
+      {
+        "day": 4,
+        "name": "Pull B - Back Thickness & Arms (Calibration)",
+        "target_min": 34,
+        "main": [
+          {
+            "exercise_id": "smith_bent_row",
+            "sets": 4,
+            "reps": "8-10",
+            "rir": "2",
+            "rest_sec": 120,
+            "note": "+10 from 110x10. Go light on ego, tight on form - rebuild toward 10 with a flat back.",
+            "start_load_lbs": 120
+          },
+          {
+            "exercise_id": "lat_pulldown_neutral",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": "Elbows tight to the ribs, full stretch up top.",
+            "start_load_lbs": 65
+          },
+          {
+            "exercise_id": "single_arm_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 75,
+            "note": "Per arm. Big stretch at the front of each rep.",
+            "start_load_lbs": 35
           },
           {
             "exercise_id": "cable_face_pull",
@@ -398,163 +461,29 @@
             "reps": "15",
             "rir": "2",
             "rest_sec": 45,
-            "note": "Shoulder health insurance. Elbows high.",
+            "note": "Elbows high. Shoulder-health insurance - never skip.",
             "start_load_lbs": 25
           },
           {
-            "exercise_id": "cable_y_raise",
-            "sets": 2,
-            "reps": "12",
-            "rir": "1-2",
-            "rest_sec": 45,
-            "note": "",
-            "start_load_lbs": 7.5
-          }
-        ],
-        "forearm_finisher": null,
-        "core_finisher": "core_C",
-        "cardio": {
-          "exercise_id": "treadmill_intervals",
-          "duration_min": 12,
-          "detail": "3 min warm-up, then 6 rounds of 30s hard / 90s easy walk, 2 min cool-down."
-        }
-      },
-      {
-        "day": 4,
-        "name": "Arms & Upper Accessory",
-        "target_min": 38,
-        "main": [
-          {
-            "exercise_id": "smith_close_grip_press",
-            "sets": 3,
-            "reps": "8-12",
-            "rir": "2",
-            "rest_sec": 90,
-            "note": "Hands shoulder width, elbows tucked.",
-            "start_load_lbs": 125
-          },
-          {
-            "exercise_id": "bench_dip",
-            "sets": 3,
-            "reps": "max clean reps (target 12-20)",
-            "rir": "1",
-            "rest_sec": 60,
-            "note": "Stop if the front of the shoulder pinches."
-          },
-          {
-            "exercise_id": "overhead_rope_extension",
-            "sets": 3,
-            "reps": "12-15",
-            "rir": "1-2",
-            "rest_sec": 60,
-            "start_load_lbs": 30,
-            "note": "Replaces the straight-bar pushdown. Elbows point forward and stay close together, deep stretch behind the head. This is the only long-head work in the week besides Day 1, so make the stretch count."
-          },
-          {
-            "exercise_id": "incline_cable_curl",
-            "sets": 3,
-            "reps": "10-12",
-            "rir": "1-2",
-            "rest_sec": 60,
-            "note": "Per arm. Let the arm hang fully behind you at the bottom.",
-            "start_load_lbs": 15
-          },
-          {
-            "exercise_id": "high_cable_curl",
-            "sets": 2,
-            "reps": "12-15",
-            "rir": "1-2",
-            "rest_sec": 45,
-            "note": "Per arm. Pose and squeeze.",
-            "start_load_lbs": 12.5
-          },
-          {
-            "exercise_id": "pushup",
-            "sets": 1,
-            "reps": "max reps",
-            "rir": "0",
-            "rest_sec": 0,
-            "note": "Burnout set to finish."
-          }
-        ],
-        "forearm_finisher": "forearm_A",
-        "core_finisher": null,
-        "cardio": null
-      },
-      {
-        "day": 5,
-        "name": "Full Upper Pump & Cardio",
-        "target_min": 35,
-        "main": [
-          {
-            "exercise_id": "cable_chest_press",
-            "sets": 3,
-            "reps": "12-15",
-            "rir": "1-2",
-            "rest_sec": 60,
-            "note": "Per side. Converge the hands at the front.",
-            "start_load_lbs": 30
-          },
-          {
-            "exercise_id": "lat_pulldown_neutral",
-            "sets": 3,
-            "reps": "12-15",
-            "rir": "1-2",
-            "rest_sec": 60,
-            "note": "",
-            "start_load_lbs": 65
-          },
-          {
-            "exercise_id": "cable_lateral_raise",
-            "sets": 3,
-            "reps": "15-20",
-            "rir": "0-1",
-            "rest_sec": 45,
-            "note": "Per arm. High reps, burn it out.",
-            "start_load_lbs": 7.5
-          },
-          {
-            "exercise_id": "single_arm_cable_row",
-            "sets": 3,
-            "reps": "12",
-            "rir": "1-2",
-            "rest_sec": 60,
-            "note": "Per arm. Big stretch at the front.",
-            "start_load_lbs": 35
-          },
-          {
             "exercise_id": "cable_hammer_curl_rope",
-            "sets": 2,
-            "reps": "15",
-            "rir": "0-1",
-            "rest_sec": 45,
-            "note": "Superset with the next exercise - no rest between.",
-            "start_load_lbs": 22.5
-          },
-          {
-            "exercise_id": "rope_pushdown",
-            "sets": 2,
-            "reps": "15",
-            "rir": "0-1",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1-2",
             "rest_sec": 60,
-            "note": "Superset partner. Rest only after the pushdowns.",
-            "start_load_lbs": 35
+            "note": "Neutral grip throughout - brachialis and forearm.",
+            "start_load_lbs": 25
           }
         ],
         "forearm_finisher": null,
-        "core_finisher": "core_B",
-        "cardio": {
-          "exercise_id": "treadmill_z2",
-          "duration_min": 15,
-          "detail": "Incline 5-8%, brisk walk. Conversational pace."
-        }
+        "core_finisher": "core_A",
+        "cardio": null
       }
     ],
     "block2": [
       {
         "day": 1,
         "name": "Push A - Chest Emphasis",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_flat_press",
@@ -582,19 +511,11 @@
           },
           {
             "exercise_id": "cable_lateral_raise",
-            "sets": 3,
+            "sets": 4,
             "reps": "12-15",
             "rir": "1",
             "rest_sec": 60,
             "note": "Per arm."
-          },
-          {
-            "exercise_id": "rope_pushdown",
-            "sets": 3,
-            "reps": "10-12",
-            "rir": "1",
-            "rest_sec": 60,
-            "note": "Elbows pinned, spread the rope at the bottom.  [ROTATION: rope pushdown / cable kickback \u2014 this is the Block 2 pick.]"
           },
           {
             "exercise_id": "overhead_rope_extension",
@@ -612,7 +533,7 @@
       {
         "day": 2,
         "name": "Pull A - Back Width & Biceps",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "pullup",
@@ -639,14 +560,6 @@
             "note": ""
           },
           {
-            "exercise_id": "straight_arm_pulldown",
-            "sets": 3,
-            "reps": "12-15",
-            "rir": "1",
-            "rest_sec": 60,
-            "note": ""
-          },
-          {
             "exercise_id": "cable_curl",
             "sets": 3,
             "reps": "8-12",
@@ -670,7 +583,7 @@
       {
         "day": 3,
         "name": "Push B - Shoulder Emphasis",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_ohp_seated",
@@ -690,7 +603,7 @@
           },
           {
             "exercise_id": "cable_lateral_raise_lean",
-            "sets": 4,
+            "sets": 5,
             "reps": "12-20",
             "rir": "0-1",
             "rest_sec": 60,
@@ -711,14 +624,6 @@
             "rir": "1-2",
             "rest_sec": 90,
             "note": ""
-          },
-          {
-            "exercise_id": "bench_dip",
-            "sets": 2,
-            "reps": "max clean reps",
-            "rir": "0-1",
-            "rest_sec": 60,
-            "note": ""
           }
         ],
         "forearm_finisher": "forearm_B",
@@ -728,7 +633,7 @@
       {
         "day": 4,
         "name": "Pull B - Back Thickness & Arms",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_bent_row",
@@ -769,14 +674,6 @@
             "rir": "1",
             "rest_sec": 60,
             "note": ""
-          },
-          {
-            "exercise_id": "cable_shrug",
-            "sets": 3,
-            "reps": "12",
-            "rir": "1",
-            "rest_sec": 60,
-            "note": "Two-second hold at the top."
           }
         ],
         "forearm_finisher": null,
@@ -788,7 +685,7 @@
       {
         "day": 1,
         "name": "Push A - Chest Emphasis",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_flat_press",
@@ -816,19 +713,11 @@
           },
           {
             "exercise_id": "cable_lateral_raise",
-            "sets": 3,
+            "sets": 4,
             "reps": "12-15",
             "rir": "1",
             "rest_sec": 60,
             "note": "Per arm."
-          },
-          {
-            "exercise_id": "cable_kickback",
-            "sets": 3,
-            "reps": "12-20",
-            "rir": "0-1",
-            "rest_sec": 45,
-            "note": "Per arm. Upper arm dead still, squeeze hard at full extension.  [ROTATION: rope pushdown / cable kickback \u2014 this is the Block 3 pick.]"
           },
           {
             "exercise_id": "overhead_rope_extension",
@@ -846,7 +735,7 @@
       {
         "day": 2,
         "name": "Pull A - Back Width & Biceps",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "pullup",
@@ -873,14 +762,6 @@
             "note": ""
           },
           {
-            "exercise_id": "straight_arm_pulldown",
-            "sets": 3,
-            "reps": "12-15",
-            "rir": "1",
-            "rest_sec": 60,
-            "note": ""
-          },
-          {
             "exercise_id": "high_cable_curl",
             "sets": 3,
             "reps": "12-15",
@@ -904,7 +785,7 @@
       {
         "day": 3,
         "name": "Push B - Shoulder Emphasis",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_ohp_seated",
@@ -924,7 +805,7 @@
           },
           {
             "exercise_id": "cable_lateral_raise_lean",
-            "sets": 4,
+            "sets": 5,
             "reps": "12-20",
             "rir": "0-1",
             "rest_sec": 60,
@@ -945,14 +826,6 @@
             "rir": "1-2",
             "rest_sec": 90,
             "note": ""
-          },
-          {
-            "exercise_id": "bench_dip",
-            "sets": 2,
-            "reps": "max clean reps",
-            "rir": "0-1",
-            "rest_sec": 60,
-            "note": ""
           }
         ],
         "forearm_finisher": "forearm_B",
@@ -962,7 +835,7 @@
       {
         "day": 4,
         "name": "Pull B - Back Thickness & Arms",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_bent_row",
@@ -1003,14 +876,6 @@
             "rir": "1",
             "rest_sec": 60,
             "note": ""
-          },
-          {
-            "exercise_id": "cable_shrug",
-            "sets": 3,
-            "reps": "12",
-            "rir": "1",
-            "rest_sec": 60,
-            "note": "Two-second hold at the top."
           }
         ],
         "forearm_finisher": null,
@@ -1022,7 +887,7 @@
       {
         "day": 1,
         "name": "Push A - Chest Emphasis",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_flat_press",
@@ -1050,19 +915,11 @@
           },
           {
             "exercise_id": "cable_lateral_raise",
-            "sets": 3,
+            "sets": 4,
             "reps": "12-15",
             "rir": "1",
             "rest_sec": 60,
             "note": "Per arm."
-          },
-          {
-            "exercise_id": "rope_pushdown",
-            "sets": 3,
-            "reps": "10-12",
-            "rir": "1",
-            "rest_sec": 60,
-            "note": "Elbows pinned, spread the rope at the bottom.  [ROTATION: rope pushdown / cable kickback \u2014 this is the Block 4 pick.]"
           },
           {
             "exercise_id": "overhead_rope_extension",
@@ -1080,7 +937,7 @@
       {
         "day": 2,
         "name": "Pull A - Back Width & Biceps",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "pullup",
@@ -1107,14 +964,6 @@
             "note": ""
           },
           {
-            "exercise_id": "straight_arm_pulldown",
-            "sets": 3,
-            "reps": "12-15",
-            "rir": "1",
-            "rest_sec": 60,
-            "note": ""
-          },
-          {
             "exercise_id": "cable_curl",
             "sets": 3,
             "reps": "8-12",
@@ -1138,7 +987,7 @@
       {
         "day": 3,
         "name": "Push B - Shoulder Emphasis",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_ohp_seated",
@@ -1158,7 +1007,7 @@
           },
           {
             "exercise_id": "cable_lateral_raise_lean",
-            "sets": 4,
+            "sets": 5,
             "reps": "12-20",
             "rir": "0-1",
             "rest_sec": 60,
@@ -1179,14 +1028,6 @@
             "rir": "1-2",
             "rest_sec": 90,
             "note": ""
-          },
-          {
-            "exercise_id": "bench_dip",
-            "sets": 2,
-            "reps": "max clean reps",
-            "rir": "0-1",
-            "rest_sec": 60,
-            "note": ""
           }
         ],
         "forearm_finisher": "forearm_B",
@@ -1196,7 +1037,7 @@
       {
         "day": 4,
         "name": "Pull B - Back Thickness & Arms",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_bent_row",
@@ -1237,14 +1078,6 @@
             "rir": "1",
             "rest_sec": 60,
             "note": ""
-          },
-          {
-            "exercise_id": "cable_shrug",
-            "sets": 3,
-            "reps": "12",
-            "rir": "1",
-            "rest_sec": 60,
-            "note": "Two-second hold at the top."
           }
         ],
         "forearm_finisher": null,
@@ -1256,7 +1089,7 @@
       {
         "day": 1,
         "name": "Push A - Chest Emphasis",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_flat_press",
@@ -1284,19 +1117,11 @@
           },
           {
             "exercise_id": "cable_lateral_raise",
-            "sets": 3,
+            "sets": 4,
             "reps": "12-15",
             "rir": "1",
             "rest_sec": 60,
             "note": "Per arm."
-          },
-          {
-            "exercise_id": "cable_kickback",
-            "sets": 3,
-            "reps": "12-20",
-            "rir": "0-1",
-            "rest_sec": 45,
-            "note": "Per arm. Upper arm dead still, squeeze hard at full extension.  [ROTATION: rope pushdown / cable kickback \u2014 this is the Block 5 pick.]"
           },
           {
             "exercise_id": "overhead_rope_extension",
@@ -1314,7 +1139,7 @@
       {
         "day": 2,
         "name": "Pull A - Back Width & Biceps",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "pullup",
@@ -1341,14 +1166,6 @@
             "note": ""
           },
           {
-            "exercise_id": "straight_arm_pulldown",
-            "sets": 3,
-            "reps": "12-15",
-            "rir": "1",
-            "rest_sec": 60,
-            "note": ""
-          },
-          {
             "exercise_id": "high_cable_curl",
             "sets": 3,
             "reps": "12-15",
@@ -1372,7 +1189,7 @@
       {
         "day": 3,
         "name": "Push B - Shoulder Emphasis",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_ohp_seated",
@@ -1392,7 +1209,7 @@
           },
           {
             "exercise_id": "cable_lateral_raise_lean",
-            "sets": 4,
+            "sets": 5,
             "reps": "12-20",
             "rir": "0-1",
             "rest_sec": 60,
@@ -1413,14 +1230,6 @@
             "rir": "1-2",
             "rest_sec": 90,
             "note": ""
-          },
-          {
-            "exercise_id": "bench_dip",
-            "sets": 2,
-            "reps": "max clean reps",
-            "rir": "0-1",
-            "rest_sec": 60,
-            "note": ""
           }
         ],
         "forearm_finisher": "forearm_B",
@@ -1430,7 +1239,7 @@
       {
         "day": 4,
         "name": "Pull B - Back Thickness & Arms",
-        "target_min": 40,
+        "target_min": 34,
         "main": [
           {
             "exercise_id": "smith_bent_row",
@@ -1471,14 +1280,253 @@
             "rir": "1",
             "rest_sec": 60,
             "note": ""
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_A",
+        "cardio": null
+      }
+    ],
+    "block1_wk1": [
+      {
+        "day": 1,
+        "name": "Push A - Chest Emphasis (Calibration)",
+        "target_min": 38,
+        "main": [
+          {
+            "exercise_id": "smith_flat_press",
+            "sets": 4,
+            "reps": "8-10",
+            "rir": "2-3",
+            "rest_sec": 120,
+            "note": "Calibrated to 160x10 @ RIR 2. Anchor lift - add the next increment whenever you hit 10 reps with 1-2 left in reserve.",
+            "start_load_lbs": 160
           },
           {
-            "exercise_id": "cable_shrug",
+            "exercise_id": "smith_incline_press",
             "sets": 3,
-            "reps": "12",
+            "reps": "8-12",
+            "rir": "2",
+            "rest_sec": 105,
+            "note": "Start lighter than you think. Full range beats big numbers.",
+            "start_load_lbs": 130
+          },
+          {
+            "exercise_id": "cable_fly_high_low",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Per side. Fixed soft elbow, squeeze one second at the bottom.",
+            "start_load_lbs": 15
+          },
+          {
+            "exercise_id": "cable_lateral_raise",
+            "sets": 5,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Per arm. You hit 15x8, but that's heavier than the 12-15 target - drop to ~12.5 and earn 12-15 clean reps. Side delts grow from controlled volume, not load.",
+            "start_load_lbs": 12.5
+          },
+          {
+            "exercise_id": "rope_pushdown",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Elbows pinned to the ribs.",
+            "start_load_lbs": 40
+          },
+          {
+            "exercise_id": "overhead_rope_extension",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Deep stretch behind the head.",
+            "start_load_lbs": 30
+          }
+        ],
+        "forearm_finisher": "forearm_A",
+        "core_finisher": "core_A",
+        "cardio": null
+      },
+      {
+        "day": 2,
+        "name": "Pull A - Back Width & Biceps (Calibration)",
+        "target_min": 38,
+        "main": [
+          {
+            "exercise_id": "pullup",
+            "sets": 4,
+            "reps": "max clean reps (target 6-10)",
+            "rir": "0-1",
+            "rest_sec": 120,
+            "note": "Under 6? Use 5-second negatives instead: 4 sets of 4."
+          },
+          {
+            "exercise_id": "lat_pulldown_wide",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": "Curl bar, outer straight sections. Elbows down and back.",
+            "start_load_lbs": 80
+          },
+          {
+            "exercise_id": "seated_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": "Torso vertical, squeeze the shoulder blades.",
+            "start_load_lbs": 70
+          },
+          {
+            "exercise_id": "straight_arm_pulldown",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Pure lat isolation, arms stay straight.",
+            "start_load_lbs": 30
+          },
+          {
+            "exercise_id": "cable_curl",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 75,
+            "note": "PER ARM, one side then the other. Down from your 32.5 - controlled, no swing. Rest after the second arm.",
+            "start_load_lbs": 25
+          },
+          {
+            "exercise_id": "incline_cable_curl",
+            "sets": 2,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Per arm. Let the arm hang behind you - the stretched bottom is the point.",
+            "start_load_lbs": 15
+          }
+        ],
+        "forearm_finisher": null,
+        "core_finisher": "core_B",
+        "cardio": null
+      },
+      {
+        "day": 3,
+        "name": "Push B - Shoulder Emphasis (Calibration)",
+        "target_min": 38,
+        "main": [
+          {
+            "exercise_id": "smith_ohp_seated",
+            "sets": 4,
+            "reps": "8-10",
+            "rir": "2",
+            "rest_sec": 120,
+            "note": "Calibrated to 120 - your real number was well above my 105 estimate. Add 5-10 lbs when you top 10 reps at RIR 1-2.",
+            "start_load_lbs": 120
+          },
+          {
+            "exercise_id": "cable_chest_press",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": "Per side. Split stance, converge the hands at the front.",
+            "start_load_lbs": 30
+          },
+          {
+            "exercise_id": "cable_lateral_raise_lean",
+            "sets": 4,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Per arm. Leaning-away angle loads the stretched bottom - start even lighter than the standing raise.",
+            "start_load_lbs": 7.5
+          },
+          {
+            "exercise_id": "cable_rear_delt_fly",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Pull the hands apart, don't row.",
+            "start_load_lbs": 15
+          },
+          {
+            "exercise_id": "smith_close_grip_press",
+            "sets": 3,
+            "reps": "8-12",
+            "rir": "2",
+            "rest_sec": 90,
+            "note": "Hands shoulder width, elbows tucked to ~30.",
+            "start_load_lbs": 130
+          },
+          {
+            "exercise_id": "bench_dip",
+            "sets": 2,
+            "reps": "max clean reps (target 12-20)",
             "rir": "1",
             "rest_sec": 60,
-            "note": "Two-second hold at the top."
+            "note": "Stop if the front of the shoulder pinches."
+          }
+        ],
+        "forearm_finisher": "forearm_B",
+        "core_finisher": "core_C",
+        "cardio": null
+      },
+      {
+        "day": 4,
+        "name": "Pull B - Back Thickness & Arms (Calibration)",
+        "target_min": 34,
+        "main": [
+          {
+            "exercise_id": "smith_bent_row",
+            "sets": 4,
+            "reps": "8-10",
+            "rir": "2",
+            "rest_sec": 120,
+            "note": "Calibrated to 110x10. Flat back at all times - if it rounds, the set is over.",
+            "start_load_lbs": 110
+          },
+          {
+            "exercise_id": "lat_pulldown_neutral",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 90,
+            "note": "Elbows tight to the ribs, full stretch up top.",
+            "start_load_lbs": 65
+          },
+          {
+            "exercise_id": "single_arm_cable_row",
+            "sets": 3,
+            "reps": "10-12",
+            "rir": "1-2",
+            "rest_sec": 75,
+            "note": "Per arm. Big stretch at the front of each rep.",
+            "start_load_lbs": 35
+          },
+          {
+            "exercise_id": "cable_face_pull",
+            "sets": 3,
+            "reps": "15",
+            "rir": "2",
+            "rest_sec": 45,
+            "note": "Elbows high. Shoulder-health insurance - never skip.",
+            "start_load_lbs": 25
+          },
+          {
+            "exercise_id": "cable_hammer_curl_rope",
+            "sets": 3,
+            "reps": "12-15",
+            "rir": "1-2",
+            "rest_sec": 60,
+            "note": "Neutral grip throughout - brachialis and forearm.",
+            "start_load_lbs": 25
           }
         ],
         "forearm_finisher": null,
@@ -1499,8 +1547,8 @@
           "sets": 3,
           "reps": "15-20",
           "rest_sec": 45,
-          "start_load_lbs": 30,
-          "note": "Let the bar roll to the fingertips at the bottom every rep."
+          "start_load_lbs": 50,
+          "note": "50x15 is the bottom of the 15-20 range - add reps toward 20 before loading heavier."
         },
         {
           "exercise_id": "behind_back_wrist_curl",
@@ -1516,7 +1564,7 @@
           "reps": "max time (target 30-60s)",
           "rest_sec": 60,
           "start_load_lbs": 0,
-          "note": "Progress to towel hangs once you pass 60 seconds."
+          "note": "Hit 60s - graduate to towel hangs for a thicker, harder grip."
         }
       ]
     },
@@ -2745,8 +2793,8 @@
     {
       "week": 1,
       "block": "block_1",
-      "days_per_week": 5,
-      "session_template": "block1",
+      "days_per_week": 4,
+      "session_template": "block1_wk1",
       "days": [
         {
           "weekday": "Monday",
@@ -2758,12 +2806,12 @@
         },
         {
           "weekday": "Wednesday",
-          "session": 3
+          "session": null,
+          "type": "rest"
         },
         {
           "weekday": "Thursday",
-          "session": null,
-          "type": "rest"
+          "session": 3
         },
         {
           "weekday": "Friday",
@@ -2771,7 +2819,8 @@
         },
         {
           "weekday": "Saturday",
-          "session": 5
+          "session": null,
+          "type": "rest"
         },
         {
           "weekday": "Sunday",
@@ -2785,7 +2834,7 @@
     {
       "week": 2,
       "block": "block_1",
-      "days_per_week": 5,
+      "days_per_week": 4,
       "session_template": "block1",
       "days": [
         {
@@ -2798,12 +2847,12 @@
         },
         {
           "weekday": "Wednesday",
-          "session": 3
+          "session": null,
+          "type": "rest"
         },
         {
           "weekday": "Thursday",
-          "session": null,
-          "type": "rest"
+          "session": 3
         },
         {
           "weekday": "Friday",
@@ -2811,7 +2860,8 @@
         },
         {
           "weekday": "Saturday",
-          "session": 5
+          "session": null,
+          "type": "rest"
         },
         {
           "weekday": "Sunday",
@@ -2831,7 +2881,7 @@
     {
       "week": 3,
       "block": "block_1",
-      "days_per_week": 5,
+      "days_per_week": 4,
       "session_template": "block1",
       "days": [
         {
@@ -2844,12 +2894,12 @@
         },
         {
           "weekday": "Wednesday",
-          "session": 3
+          "session": null,
+          "type": "rest"
         },
         {
           "weekday": "Thursday",
-          "session": null,
-          "type": "rest"
+          "session": 3
         },
         {
           "weekday": "Friday",
@@ -2857,7 +2907,8 @@
         },
         {
           "weekday": "Saturday",
-          "session": 5
+          "session": null,
+          "type": "rest"
         },
         {
           "weekday": "Sunday",
@@ -2871,7 +2922,7 @@
     {
       "week": 4,
       "block": "block_1",
-      "days_per_week": 5,
+      "days_per_week": 4,
       "session_template": "block1",
       "days": [
         {
@@ -2884,12 +2935,12 @@
         },
         {
           "weekday": "Wednesday",
-          "session": 3
+          "session": null,
+          "type": "rest"
         },
         {
           "weekday": "Thursday",
-          "session": null,
-          "type": "rest"
+          "session": 3
         },
         {
           "weekday": "Friday",
@@ -2897,7 +2948,8 @@
         },
         {
           "weekday": "Saturday",
-          "session": 5
+          "session": null,
+          "type": "rest"
         },
         {
           "weekday": "Sunday",
