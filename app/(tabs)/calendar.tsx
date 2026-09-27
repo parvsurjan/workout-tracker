@@ -47,6 +47,13 @@ export default function CalendarScreen() {
     return unsub;
   }, [navigation]);
 
+  const unmarkAsDone = useCallback(async (globalIndex: number) => {
+    setCurrentDayIndex(globalIndex);
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, String(globalIndex));
+    } catch {}
+  }, []);
+
   const load = useCallback(async () => {
     try {
       const raw = await AsyncStorage.getItem(STORAGE_KEY);
@@ -90,6 +97,14 @@ export default function CalendarScreen() {
         </View>
         <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
           {day.kind === 'checkin' ? <CheckinCard day={day} /> : <DayDetail day={day} />}
+          {status === 'Completed' && (
+            <Pressable
+              onPress={() => unmarkAsDone(day.globalIndex)}
+              style={styles.unmarkButton}
+            >
+              <Text style={styles.unmarkButtonText}>Unmark as done</Text>
+            </Pressable>
+          )}
           <View style={{ height: 32 }} />
         </ScrollView>
       </SafeAreaView>
@@ -228,6 +243,17 @@ const styles = StyleSheet.create({
   dayMeta: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 3 },
   typeDot: { width: 6, height: 6, borderRadius: 3 },
   dayMetaText: { color: theme.textDim, fontSize: 11, fontWeight: '600', letterSpacing: 0.5 },
+
+  unmarkButton: {
+    marginTop: 16,
+    alignSelf: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: theme.border,
+  },
+  unmarkButtonText: { color: theme.textMuted, fontSize: 14, fontWeight: '600' },
 
   detailHeader: {
     flexDirection: 'row',
