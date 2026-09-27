@@ -44,6 +44,15 @@ export default function WorkoutScreen() {
     } catch {}
   }, [currentDayIndex]);
 
+  const unmarkPrevious = useCallback(async () => {
+    const prev = Math.max(currentDayIndex - 1, 0);
+    setCurrentDayIndex(prev);
+    setViewIndex(prev);
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, String(prev));
+    } catch {}
+  }, [currentDayIndex]);
+
   const resetProgram = useCallback(async () => {
     setCurrentDayIndex(0);
     setViewIndex(0);
@@ -63,7 +72,7 @@ export default function WorkoutScreen() {
   }
 
   if (currentDayIndex >= TOTAL_DAYS) {
-    return <Congrats onReset={resetProgram} />;
+    return <Congrats onReset={resetProgram} onUnmarkPrevious={unmarkPrevious} />;
   }
 
   const day = resolvedDays[viewIndex];
@@ -116,18 +125,31 @@ export default function WorkoutScreen() {
             <Text style={styles.completeButtonText}>Back to current day</Text>
           </Pressable>
         ) : (
-          <Pressable onPress={markComplete} style={styles.completeButton}>
-            <Text style={styles.completeButtonText}>
-              {isCheckin ? 'Mark check-in done' : 'Mark workout complete'}
-            </Text>
-          </Pressable>
+          <>
+            <Pressable onPress={markComplete} style={styles.completeButton}>
+              <Text style={styles.completeButtonText}>
+                {isCheckin ? 'Mark check-in done' : 'Mark workout complete'}
+              </Text>
+            </Pressable>
+            {currentDayIndex > 0 && (
+              <Pressable onPress={unmarkPrevious} style={styles.undoButton}>
+                <Text style={styles.undoButtonText}>Unmark previous day as done</Text>
+              </Pressable>
+            )}
+          </>
         )}
       </View>
     </SafeAreaView>
   );
 }
 
-function Congrats({ onReset }: { onReset: () => void }) {
+function Congrats({
+  onReset,
+  onUnmarkPrevious,
+}: {
+  onReset: () => void;
+  onUnmarkPrevious: () => void;
+}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.congrats}>
@@ -139,6 +161,9 @@ function Congrats({ onReset }: { onReset: () => void }) {
         </Text>
         <Pressable onPress={onReset} style={styles.resetButton}>
           <Text style={styles.completeButtonText}>Restart program</Text>
+        </Pressable>
+        <Pressable onPress={onUnmarkPrevious} style={styles.undoButton}>
+          <Text style={styles.undoButtonText}>Unmark previous day as done</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -181,6 +206,8 @@ const styles = StyleSheet.create({
   },
   prevButton: { alignSelf: 'center', paddingVertical: 6, marginBottom: 8 },
   prevButtonText: { color: theme.textMuted, fontSize: 13, fontWeight: '600' },
+  undoButton: { alignSelf: 'center', paddingVertical: 10 },
+  undoButtonText: { color: theme.textMuted, fontSize: 13, fontWeight: '600' },
   completeButton: {
     backgroundColor: theme.text,
     borderRadius: 14,
