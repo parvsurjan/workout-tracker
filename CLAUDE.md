@@ -18,7 +18,7 @@ When the user pastes a message starting with `=== 2-WEEK CHECK-IN ===`:
 4. Reply to the user using the format in §6.4.
 
 Golden rules:
-- **Only edit `data/upper_body_8_month_plan.json`** for coaching changes. (Exception: the check-in auto-fill in `data/workoutPlan.ts` — see §6.1.) Do not edit `CLAUDE_CODE_MIGRATION_BRIEF.md` (user's standing instruction). Flag it if a change makes the brief structurally wrong.
+- **When processing a check-in, only edit `data/upper_body_8_month_plan.json`.** Outside check-ins, app code changes are fine when the user asks for app changes. Do not edit `CLAUDE_CODE_MIGRATION_BRIEF.md` (user's standing instruction). Flag it if a change makes the brief structurally wrong.
 - Never prescribe a weight the user has already done as if it were progress. Either it's a jump, or it's "same weight, chase reps" — say which.
 - Never add 1-rep-max testing. Never recommend cutting calories.
 - Main workout: **4–5 exercises per day, never more.** Every muscle trained **2x per week.**
