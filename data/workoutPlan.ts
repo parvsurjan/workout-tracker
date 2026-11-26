@@ -385,40 +385,24 @@ export const weekStartIndices: number[] = (() => {
 // One logged working set per exercise per day.
 export type SetLog = { weightLbs: string; reps: string; rir: string };
 
-// Maps each {{placeholder}} stem in the check-in template to the exercise_id
-// whose best working set fills it, plus which fields that lift reports.
-type CheckinLift = {
-  key: string; // placeholder stem, e.g. "flat_press" -> {{flat_press_lbs}} ...
-  exerciseId: string;
-  fields: ('lbs' | 'reps' | 'rir')[];
-};
+// The lift lines are generated from whatever is actually scheduled in the two
+// weeks a check-in covers (main work + both finishers), so no exercise can be
+// left out — including rotating slots like the chest fly or primary curl.
+// The template holds {{main_lifts}}, {{forearm_lifts}} and {{core_lifts}}.
 
-export const CHECKIN_LIFTS: CheckinLift[] = [
-  { key: 'flat_press', exerciseId: 'smith_flat_press', fields: ['lbs', 'reps', 'rir'] },
-  { key: 'incline_press', exerciseId: 'smith_incline_press', fields: ['lbs', 'reps', 'rir'] },
-  { key: 'ohp', exerciseId: 'smith_ohp_seated', fields: ['lbs', 'reps', 'rir'] },
-  { key: 'cgbp', exerciseId: 'smith_close_grip_press', fields: ['lbs', 'reps', 'rir'] },
-  { key: 'row', exerciseId: 'smith_bent_row', fields: ['lbs', 'reps', 'rir'] },
-  { key: 'pulldown', exerciseId: 'lat_pulldown_wide', fields: ['lbs', 'reps', 'rir'] },
-  { key: 'cable_row', exerciseId: 'seated_cable_row', fields: ['lbs', 'reps', 'rir'] },
-  { key: 'pullup', exerciseId: 'pullup', fields: ['reps'] },
-  { key: 'lat_raise', exerciseId: 'cable_lateral_raise', fields: ['lbs', 'reps'] },
-  { key: 'curl', exerciseId: 'cable_curl', fields: ['lbs', 'reps'] },
-  { key: 'pushdown', exerciseId: 'rope_pushdown', fields: ['lbs', 'reps'] },
-  { key: 'cable_crunch', exerciseId: 'cable_crunch', fields: ['lbs', 'reps'] },
-  { key: 'wrist_curl', exerciseId: 'smith_wrist_curl', fields: ['lbs', 'reps'] },
-  { key: 'rev_wrist_curl', exerciseId: 'smith_reverse_wrist_curl', fields: ['lbs', 'reps'] },
-  { key: 'rev_curl', exerciseId: 'cable_reverse_curl', fields: ['lbs', 'reps'] },
-];
+// Loads entered per arm (single-arm, one side at a time).
+const PER_ARM_IDS = new Set([
+  'cable_curl',
+  'cable_lateral_raise',
+  'cable_lateral_raise_lean',
+  'incline_cable_curl',
+  'single_arm_cable_row',
+]);
 
-// Placeholders that map to a duration/max-hold field rather than lbs×reps.
-const CHECKIN_SECONDS: { placeholder: string; exerciseId: string }[] = [
-  { placeholder: 'dead_hang_sec', exerciseId: 'dead_hang' },
-  { placeholder: 'plank_sec', exerciseId: 'long_lever_plank' },
-];
-
-// The hanging leg/knee raise fills {{leg_raise_reps}} (best set).
-const LEG_RAISE_IDS = ['hanging_leg_raise', 'hanging_knee_raise'];
+/** Timed holds store their seconds in the reps field. */
+function isTimed(ex: ResolvedExercise): boolean {
+  return /second|max time|\d+\s*s\b/i.test(ex.reps);
+}
 
 function num(s: string | undefined): number {
   const n = parseFloat((s ?? '').replace(/[^0-9.]/g, ''));
@@ -427,12 +411,40 @@ function num(s: string | undefined): number {
 
 /** Best working set = heaviest load, tie-broken by most reps (reps-only for bodyweight). */
 function bestSet(logs: SetLog[]): SetLog | undefined {
-  if (logs.length === 0) return undefined;
-  return [...logs].sort((a, b) => {
+  const real = logs.filter((l) => (l.weightLbs ?? '').trim() || (l.reps ?? '').trim());
+  if (real.length === 0) return undefined;
+  return [...real].sort((a, b) => {
     const w = num(b.weightLbs) - num(a.weightLbs);
     if (w !== 0) return w;
     return num(b.reps) - num(a.reps);
   })[0];
+}
+
+function liftLine(ex: ResolvedExercise, logs: SetLog[]): string {
+  const label = `${ex.name}:`.padEnd(40);
+  const best = bestSet(logs);
+  if (!best) return `${label}n/a`;
+  if (isTimed(ex)) return `${label}${best.reps || 'n/a'} seconds`;
+  const lbs = (best.weightLbs ?? '').trim();
+  const load = lbs ? `${lbs} lbs${PER_ARM_IDS.has(ex.id) ? ' PER ARM' : ''}` : 'BW';
+  let line = `${label}${load} x ${best.reps || 'n/a'}`;
+  if (ex.rir && (best.rir ?? '').trim()) line += ` @ RIR ${best.rir.trim()}`;
+  return line;
+}
+
+/** Exercises scheduled in `weeks`, de-duplicated, in session order. */
+function scheduledExercises(weeks: number[]) {
+  const weekSet = new Set(weeks);
+  const main = new Map<string, ResolvedExercise>();
+  const forearm = new Map<string, ResolvedExercise>();
+  const core = new Map<string, ResolvedExercise>();
+  for (const d of resolvedDays) {
+    if (!weekSet.has(d.week) || d.kind !== 'training') continue;
+    d.main.forEach((ex) => main.has(ex.id) || main.set(ex.id, ex));
+    d.forearmFinisher?.exercises.forEach((ex) => forearm.has(ex.id) || forearm.set(ex.id, ex));
+    d.coreFinisher?.exercises.forEach((ex) => core.has(ex.id) || core.set(ex.id, ex));
+  }
+  return { main: [...main.values()], forearm: [...forearm.values()], core: [...core.values()] };
 }
 
 /**
@@ -444,42 +456,21 @@ export function fillCheckinTemplate(
   day: ResolvedDay,
   logsByExercise: Record<string, SetLog[]>,
 ): string {
-  let out = day.checkin?.template ?? PLAN.checkin.template;
+  const out = day.checkin?.template ?? PLAN.checkin.template;
+  const weeks = [Math.max(1, day.week - 1), day.week];
+  const sched = scheduledExercises(weeks);
+  const lines = (list: ResolvedExercise[]) =>
+    list.length ? list.map((ex) => liftLine(ex, logsByExercise[ex.id] ?? [])).join('\n') : 'n/a';
+
   const values: Record<string, string> = {
-    week_start: String(Math.max(1, day.week - 1)),
+    week_start: String(weeks[0]),
     week_end: String(day.week),
     block_name: day.block.name,
+    main_lifts: lines(sched.main),
+    forearm_lifts: lines(sched.forearm),
+    core_lifts: lines(sched.core),
   };
 
-  for (const lift of CHECKIN_LIFTS) {
-    const best = bestSet(logsByExercise[lift.exerciseId] ?? []);
-    for (const f of lift.fields) {
-      values[`${lift.key}_${f}`] = best ? best[f === 'lbs' ? 'weightLbs' : f] : 'n/a';
-    }
-  }
-
-  for (const s of CHECKIN_SECONDS) {
-    const best = bestSet(logsByExercise[s.exerciseId] ?? []);
-    // Duration lifts store their seconds in the reps field.
-    values[s.placeholder] = best ? best.reps : 'n/a';
-  }
-
-  const legLogs = LEG_RAISE_IDS.flatMap((id) => logsByExercise[id] ?? []);
-  const legBest = bestSet(legLogs);
-  values['leg_raise_reps'] = legBest ? legBest.reps : 'n/a';
-
   // Replace known placeholders; anything left over falls back to "n/a".
-  out = out.replace(/\{\{(\w+)\}\}/g, (_, key: string) =>
-    key in values ? values[key] : 'n/a',
-  );
-  return out;
+  return out.replace(/\{\{(\w+)\}\}/g, (_, key: string) => (key in values ? values[key] : 'n/a'));
 }
-
-// Exercise ids the check-in reports on — the log rows worth defaulting/scanning.
-export const CHECKIN_EXERCISE_IDS: string[] = Array.from(
-  new Set([
-    ...CHECKIN_LIFTS.map((l) => l.exerciseId),
-    ...CHECKIN_SECONDS.map((s) => s.exerciseId),
-    ...LEG_RAISE_IDS,
-  ]),
-);
